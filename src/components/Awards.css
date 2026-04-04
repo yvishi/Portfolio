@@ -1,0 +1,86 @@
+/* Awards Section */
+.awards-section {
+  background: white;
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  margin-top: var(--space-10);
+}
+
+.award-card {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6) var(--space-6) var(--space-7);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.award-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), #e8c55a);
+}
+.award-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+  border-color: rgba(201,166,61,0.25);
+}
+
+.award-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--gold-lt);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+}
+.award-icon svg { color: var(--gold-dark); }
+
+.award-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: var(--space-2);
+  line-height: 1.25;
+}
+
+.award-org {
+  font-size: 12px;
+  color: var(--gold-dark);
+  font-weight: 500;
+  margin-bottom: var(--space-3);
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+}
+
+.award-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.award-year {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--muted-lt);
+  margin-top: var(--space-4);
+}
+
+@media (max-width: 900px) {
+  .awards-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .awards-grid { grid-template-columns: 1fr; }
+}
