@@ -49,6 +49,28 @@
   opacity: 0.85;
 }
 
+/* Logo image inside button/anchor */
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.nav-logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  display: block;
+  border-radius: 6px;
+}
+
+@media (max-width: 700px) {
+  .nav-logo-img { width: 30px; height: 30px; }
+}
+
 /* Nav Links */
 .nav-links {
   display: flex;

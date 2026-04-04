@@ -7,19 +7,19 @@ const AWARDS = [
     title: 'MERIT-I Scholarship',
     org: 'Thapar Institute of Engineering & Technology',
     desc: 'Merit-based scholarship awarded to top-performing students in the department for consistently high CGPA throughout the degree.',
-    year: '2022 — Present',
+    year: '2024 — Present',
   },
   {
     title: 'ISC Merit List',
     org: 'Council for Indian School Certificate Examinations',
-    desc: 'Nationally recognized for scoring in the top 0.1% of ISC Class XII Board examinees across India with a 97.5% aggregate.',
-    year: '2022',
+    desc: 'Nationally recognized for scoring in the top 0.1% of ISC Class XII Board Computer Science examinees across India with a 97.5% aggregate.',
+    year: '2024',
   },
   {
     title: 'INSPIRE Scholarship',
     org: 'Dept. of Science and Technology, Govt. of India',
-    desc: 'Prestigious government scholarship awarded to students who ranked in the top 1% of their respective State Board examinations.',
-    year: '2022 — Present',
+    desc: 'Prestigious government scholarship awarded to students who ranked in the top 1% of their respective Board examinations.',
+    year: '2024',
   },
 ]
 

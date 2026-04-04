@@ -29,7 +29,7 @@ export default function Navbar({ activeSection }) {
     <header className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="navbar-inner">
         <button className="nav-logo" onClick={scrollToTop} aria-label="Scroll to top">
-          Yash <span>Vishnoi</span>
+          <img src="/src/assets/initials-removebg-preview.png" alt="Yash Vishnoi" className="nav-logo-img" />
         </button>
 
         <nav aria-label="Main navigation">
@@ -50,10 +50,12 @@ export default function Navbar({ activeSection }) {
 
         <div className="nav-cta-wrap">
           <a
-            href="/Yash_Vishnoi_Resume.pdf"
-            download
+            href="https://drive.google.com/file/d/1gsCrsWixjqLbRhlPvPKeX3n6nkxqOl5G/view?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn btn-primary"
             style={{ fontSize: '12.5px', padding: '8px 18px' }}
+            title="View resume"
           >
             Resume ↓
           </a>
@@ -87,10 +89,12 @@ export default function Navbar({ activeSection }) {
               </button>
             ))}
             <a
-              href="/Yash_Vishnoi_Resume.pdf"
-              download
+              href="https://drive.google.com/file/d/1gsCrsWixjqLbRhlPvPKeX3n6nkxqOl5G/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-primary"
               style={{ marginTop: '12px', alignSelf: 'flex-start' }}
+              title="View resume"
             >
               Download Resume ↓
             </a>

@@ -37,10 +37,10 @@ export default function Education() {
               <div className="edu-badge">
                 <GraduationCap size={22} />
               </div>
-              <div className="edu-years">2022 — 2026</div>
+              <div className="edu-years">2024 — 2028</div>
             </div>
 
-            <div className="edu-degree">B.E. Software Engineering</div>
+            <div className="edu-degree">B.E. Computer Engineering</div>
             <div className="edu-school">Thapar Institute of Engineering &amp; Technology, Patiala</div>
 
             <div className="edu-score">
@@ -53,7 +53,7 @@ export default function Education() {
             <div className="edu-details">
               {[
                 'MERIT-I Scholarship recipient',
-                'INSPIRE Scholarship — DST, Govt. of India',
+                
                 'Full-stack, AI, and systems coursework',
               ].map((d) => (
                 <div className="edu-detail-row" key={d}>
@@ -76,11 +76,11 @@ export default function Education() {
               <div className="edu-badge gold-bg">
                 <Trophy size={22} />
               </div>
-              <div className="edu-years">Completed 2022</div>
+              <div className="edu-years">Completed 2024</div>
             </div>
 
             <div className="edu-degree">ISC (Class XII) — Science Stream</div>
-            <div className="edu-school">St. Joseph's Convent School, Jalandhar</div>
+            <div className="edu-school">St. Joseph's Academy, Dehradun</div>
 
             <div className="edu-score">
               <span className="edu-score-value gold-score">97.5</span>
@@ -92,8 +92,8 @@ export default function Education() {
             <div className="edu-details">
               {[
                 'Top 0.1% nationally in ISC Merit List',
-                'Computer Science, Physics, Mathematics',
-                'School topper — consecutive years',
+                // 'Computer Science, Physics, Chemistry, Mathematics',
+                'INSPIRE Scholarship — DST, Govt. of India',
               ].map((d) => (
                 <div className="edu-detail-row" key={d}>
                   <CheckCircle size={13} />

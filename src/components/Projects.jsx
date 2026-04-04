@@ -15,8 +15,8 @@ const FEATURED = {
     'Role-based access — guest, admin, and hotel manager views',
   ],
   tags: ['MongoDB', 'Express', 'React', 'Node.js', 'Redis', 'Stripe', 'Clerk Auth', 'Vercel'],
-  github: 'https://github.com/yvishi',
-  live: '#',
+  github: 'https://github.com/yvishi/Hotel-Booking',
+  live: 'https://quickstay-teal.vercel.app/',
 }
 
 const PROJECTS = [
@@ -25,25 +25,26 @@ const PROJECTS = [
     title: 'Pulse — AI Emergency Hospital App',
     desc: 'AI-powered mobile app recommending the nearest hospital in real-time using ETA, bed availability, specialty match, and insurance compatibility with Gemini AI triage guidance.',
     tags: ['React Native', 'Firebase', 'Gemini AI', 'Location API'],
-    github: 'https://github.com/yvishi',
+    github: 'https://github.com/yvishi/AI-Based-Emergency-Hopital-Recommendation',
     live: null,
   },
   {
     num: '03',
+    title: 'SplitSmart — Expense Splitter',
+    desc: 'Group expense management app with contact management, group creation, intelligent split logic, and Firestore persistence for shared balances.',
+    tags: ['React Native', 'Firestore', 'Expo'],
+    github: 'https://github.com/yvishi/SplitSmart',
+    live: null,
+  },
+  {
+    num: '04',
     title: 'Room Booking & Task Manager',
     desc: 'Internal tool suite built during internship at Raise Digital — real-time room availability tracker and drag-and-drop task management system for teams.',
     tags: ['MERN Stack', 'REST API', 'Drag & Drop'],
     github: 'https://github.com/yvishi',
     live: null,
   },
-  {
-    num: '04',
-    title: 'SplitSmart — Expense Splitter',
-    desc: 'Group expense management app with contact management, group creation, intelligent split logic, and Firestore persistence for shared balances.',
-    tags: ['React Native', 'Firestore', 'Expo'],
-    github: 'https://github.com/yvishi',
-    live: null,
-  },
+  
 ]
 
 const stagger = {

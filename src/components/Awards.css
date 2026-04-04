@@ -5,19 +5,21 @@
 
 .awards-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-5);
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
   margin-top: var(--space-10);
+  align-items: stretch;
 }
 
 .award-card {
   background: var(--off-white);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: var(--space-6) var(--space-6) var(--space-7);
+  padding: 36px 36px 32px;
   position: relative;
-  overflow: hidden;
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
 }
 .award-card::before {
   content: '';
@@ -26,6 +28,7 @@
   left: 0;
   right: 0;
   height: 3px;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
   background: linear-gradient(90deg, var(--gold), #e8c55a);
 }
 .award-card:hover {
@@ -35,52 +38,65 @@
 }
 
 .award-icon {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   background: var(--gold-lt);
   border-radius: var(--radius);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--space-4);
+  margin-bottom: 20px;
+  flex-shrink: 0;
 }
-.award-icon svg { color: var(--gold-dark); }
+.award-icon svg { color: var(--gold-dark); width: 22px; height: 22px; }
 
 .award-title {
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 400;
   color: var(--navy);
-  margin-bottom: var(--space-2);
-  line-height: 1.25;
+  margin-bottom: 10px;
+  line-height: 1.2;
 }
 
 .award-org {
   font-size: 12px;
   color: var(--gold-dark);
   font-weight: 500;
-  margin-bottom: var(--space-3);
+  margin-bottom: 16px;
   font-family: var(--font-mono);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
 }
 
 .award-desc {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
-  line-height: 1.6;
+  line-height: 1.7;
+  flex: 1;
 }
 
 .award-year {
   font-family: var(--font-mono);
   font-size: 10px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--muted-lt);
-  margin-top: var(--space-4);
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  text-transform: uppercase;
 }
 
-@media (max-width: 900px) {
-  .awards-grid { grid-template-columns: 1fr 1fr; }
+/* Third card centered when 3 items in 2-col grid */
+.award-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  max-width: calc(50% - var(--space-3));
 }
-@media (max-width: 560px) {
+
+@media (max-width: 680px) {
   .awards-grid { grid-template-columns: 1fr; }
+  .award-card:last-child:nth-child(odd) {
+    grid-column: auto;
+    max-width: none;
+  }
 }

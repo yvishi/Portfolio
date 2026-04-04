@@ -9,9 +9,9 @@ const fadeUp = {
 
 const INFO_ITEMS = [
   { label: 'Location', value: 'Patiala, Punjab, India', sub: 'Open to remote & relocation' },
-  { label: 'Institution', value: 'Thapar Institute of Engineering & Technology', sub: 'B.E. Software Engineering, 2022–2026' },
-  { label: 'Current CGPA', value: '9.67 / 10', sub: 'Consistently top-tier academic standing' },
-  { label: 'Availability', value: 'Open to Opportunities', sub: 'Full-time roles & internships' },
+  { label: 'Institution', value: 'Thapar Institute of Engineering & Technology', sub: 'B.E. Computer Engineering, 2024–2028' },
+  // { label: 'Current CGPA', value: '9.67 / 10', sub: 'Consistently top-tier academic standing' },
+  { label: 'Availability', value: 'Open to Opportunities', sub: 'Part-time roles & internships' },
 ]
 
 const INTERESTS = [
@@ -37,7 +37,7 @@ export default function About() {
             </motion.div>
 
             <motion.p className="about-body" variants={fadeUp}>
-              I'm a <span className="about-highlight">final-year Software Engineering student</span> at
+              I'm a <span className="about-highlight">Second-year Software Engineering student</span> at
               Thapar Institute with a 9.67 CGPA — passionate about writing clean, scalable code and
               shipping products that solve real problems.
             </motion.p>

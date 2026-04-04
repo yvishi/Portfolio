@@ -13,8 +13,8 @@ const CONTACT_ITEMS = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'yash.vishnoi@thapar.edu',
-    href: 'mailto:yash.vishnoi@thapar.edu',
+    value: 'y.v.s.vishnoi@gmail.com',
+    href: 'mailto:y.v.s.vishnoi@gmail.com',
   },
   {
     icon: MapPin,
@@ -36,14 +36,31 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
-    // Simulate form submission (connect to Formspree/EmailJS in production)
-    await new Promise((r) => setTimeout(r, 1200))
-    setSubmitted(true)
-    setLoading(false)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({ message: 'Send failed' }))
+        throw new Error(err.message || 'Send failed')
+      }
+
+      setSubmitted(true)
+      setForm({ name: '', email: '', subject: '', message: '' })
+    } catch (err) {
+      console.error('Contact send error:', err)
+      // Basic user feedback — you can replace with nicer UI later
+      alert('Failed to send message. Please try again later.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
-    <section id="contact" className="contact-section section-padding">
+    <section id="contact" className="contact-section">
       <div className="container">
         <motion.div
           initial="hidden"
@@ -94,15 +111,15 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="contact-social-link"
               >
-                              <GithubIcon size={15} /> GitHub
+                <GithubIcon size={15} /> GitHub
               </a>
               <a
-                href="https://linkedin.com/in/yash-vishnoi"
+                href="https://www.linkedin.com/in/yash-vishnoi-8656a7312/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-social-link"
               >
-                              <LinkedinIcon size={15} /> LinkedIn
+                <LinkedinIcon size={15} /> LinkedIn
               </a>
             </div>
           </motion.div>
@@ -192,19 +209,17 @@ export default function Contact() {
             </form>
           </motion.div>
         </div>
+      </div>
 
-        {/* Footer */}
-        <div className="portfolio-footer">
-          <div className="container footer-inner" style={{ padding: 0 }}>
-            <div className="footer-copy">
-              © 2026 <span>Yash Vishnoi</span>. All rights reserved.
-            </div>
-            <div className="footer-made">
-              Built with React + Framer Motion · Deployed on Vercel
-            </div>
+      {/* Footer — minimalistic */}
+      <footer className="portfolio-footer">
+        <div className="container">
+          <div className="footer-bottom">
+            <span className="footer-copy">© {new Date().getFullYear()} Yash Vishnoi. All rights reserved.</span>
+            <span className="footer-made">Built with React · Framer Motion</span>
           </div>
         </div>
-      </div>
+      </footer>
     </section>
   )
 }

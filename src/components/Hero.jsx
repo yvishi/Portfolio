@@ -37,7 +37,7 @@ export default function Hero() {
           animate="visible"
           custom={0.1}
         >
-          Software Engineer &amp; Full-Stack Developer
+          Computer Engineer &amp; Full-Stack Developer
         </motion.div>
 
         <motion.h1
@@ -68,7 +68,7 @@ export default function Hero() {
           animate="visible"
           custom={0.5}
         >
-          Second-year Software Engineering student at Thapar Institute of Engineering &amp; Technology
+          Second-year Computer Engineering student at Thapar Institute of Engineering &amp; Technology
           with a 9.67 CGPA — building production-grade applications that people actually use.
         </motion.p>
 
@@ -115,10 +115,10 @@ export default function Hero() {
         <a href="https://github.com/yvishi" target="_blank" rel="noopener noreferrer" className="social-btn" aria-label="GitHub">
           <GithubIcon size={16} />
         </a>
-        <a href="https://linkedin.com/in/yash-vishnoi" target="_blank" rel="noopener noreferrer" className="social-btn" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/yash-vishnoi-8656a7312/" target="_blank" rel="noopener noreferrer" className="social-btn" aria-label="LinkedIn">
           <LinkedinIcon size={16} />
         </a>
-        <a href="mailto:yash.vishnoi@thapar.edu" className="social-btn" aria-label="Email">
+        <a href="mailto:y.v.s.vishnoi@gmail.com" className="social-btn" aria-label="Email">
           <Mail size={16} />
         </a>
       </div>

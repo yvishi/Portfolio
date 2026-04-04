@@ -7,7 +7,7 @@ const SKILLS = [
     icon: Code2,
     title: 'Languages',
     sub: 'Core programming',
-    tags: ['JavaScript', 'TypeScript', 'Java', 'Python', 'C', 'SQL', 'HTML5', 'CSS3'],
+    tags: ['C++', 'JavaScript', 'TypeScript', 'Java', 'Python', 'SQL', 'HTML5', 'CSS3'],
   },
   {
     icon: Globe,
@@ -19,7 +19,7 @@ const SKILLS = [
     icon: Database,
     title: 'Backend',
     sub: 'Server & APIs',
-    tags: ['Node.js', 'Express.js', 'REST APIs', 'JWT Auth', 'Clerk', 'WebSockets'],
+    tags: ['Node.js', 'Express.js', 'REST APIs', 'JWT Auth', 'WebSockets'],
   },
   {
     icon: Database,
@@ -31,13 +31,13 @@ const SKILLS = [
     icon: Wrench,
     title: 'Tools & DevOps',
     sub: 'Build & deploy',
-    tags: ['Git', 'GitHub', 'Vercel', 'Postman', 'VS Code', 'npm', 'Linux'],
+    tags: ['Git', 'GitHub', 'AWS', 'Vercel', 'Postman', 'VS Code', 'npm', 'Linux'],
   },
   {
     icon: Cloud,
     title: 'Integrations',
     sub: 'Third-party services',
-    tags: ['Stripe', 'Gemini AI', 'EmailJS', 'MongoDB Atlas', 'Cloudinary', 'Google Maps API'],
+    tags: ['Stripe', 'Clerk', 'EmailJS', 'MongoDB Atlas', 'Cloudinary'],
   },
 ]
 
