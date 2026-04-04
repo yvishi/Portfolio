@@ -68,7 +68,7 @@ export default function Hero() {
           animate="visible"
           custom={0.5}
         >
-          Final-year Software Engineering student at Thapar Institute of Engineering &amp; Technology
+          Second-year Software Engineering student at Thapar Institute of Engineering &amp; Technology
           with a 9.67 CGPA — building production-grade applications that people actually use.
         </motion.p>
 
