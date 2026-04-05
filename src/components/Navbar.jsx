@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './Navbar.css'
+import logo from '../assets/initials-removebg-preview.png'
 
 const NAV_ITEMS = ['About', 'Education', 'Experience', 'Projects', 'Skills', 'Awards', 'Contact']
 
@@ -29,7 +30,7 @@ export default function Navbar({ activeSection }) {
     <header className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="navbar-inner">
         <button className="nav-logo" onClick={scrollToTop} aria-label="Scroll to top">
-          <img src="src/assets/initials-removebg-preview.png" alt="Yash Vishnoi" className="nav-logo-img" />
+          <img src={logo} alt="Yash Vishnoi" className="nav-logo-img" />
         </button>
 
         <nav aria-label="Main navigation">
