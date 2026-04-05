@@ -29,7 +29,7 @@ export default function Navbar({ activeSection }) {
     <header className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="navbar-inner">
         <button className="nav-logo" onClick={scrollToTop} aria-label="Scroll to top">
-          <img src="/src/assets/initials-removebg-preview.png" alt="Yash Vishnoi" className="nav-logo-img" />
+          <img src="src/assets/initials-removebg-preview.png" alt="Yash Vishnoi" className="nav-logo-img" />
         </button>
 
         <nav aria-label="Main navigation">
