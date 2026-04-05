@@ -53,7 +53,8 @@ module.exports = async (req, res) => {
     if (!sgRes.ok) {
       const txt = await sgRes.text().catch(() => '')
       console.error('SendGrid error', sgRes.status, txt)
-      return res.status(502).json({ message: 'Failed to send email' })
+      // Return limited SendGrid response for debugging (trim to avoid leaking large payloads)
+      return res.status(502).json({ message: 'Failed to send email', sendgridStatus: sgRes.status, sendgridBody: String(txt).slice(0, 200) })
     }
 
     return res.status(200).json({ message: 'Email sent' })
