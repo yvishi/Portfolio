@@ -51,7 +51,7 @@ export default function Navbar({ activeSection }) {
 
         <div className="nav-cta-wrap">
           <a
-            href="https://drive.google.com/file/d/1gsCrsWixjqLbRhlPvPKeX3n6nkxqOl5G/view?usp=drive_link"
+            href="https://drive.google.com/file/d/16H26VaYQmDu47id2lIQwt7Qqtwa5FY04/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
