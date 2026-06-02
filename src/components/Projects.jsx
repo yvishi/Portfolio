@@ -3,6 +3,7 @@ import { ExternalLink } from 'lucide-react'
 import { GithubIcon } from './BrandIcons'
 import './Projects.css'
 
+// ── Tier 1: Full-width featured ──────────────────────────
 const FEATURED = {
   label: '★ Featured Project',
   title: 'Hotel Booking Platform',
@@ -19,41 +20,53 @@ const FEATURED = {
   live: 'https://quickstay-teal.vercel.app/',
 }
 
+// ── Tier 2: Mid-size feature card ────────────────────────
+const AIRX = {
+  num: '02',
+  title: 'AirX',
+  subtitle: 'Multi-Agent · Self-Improving Reinforcement Learning',
+  desc: 'A cooperative multi-agent RL environment for air traffic control — two agents (AMAN & DMAN) coordinate via a 3-round negotiation protocol under partial observability, trained with GRPO + Unsloth 4-bit QLoRA.',
+  stats: [
+    { label: 'Composite Score', from: '0.47', to: '0.71' },
+    { label: 'Conflict Rate', from: '18%', to: '4%' },
+    { label: 'Emergency On-Time', from: '61%', to: '94%' },
+  ],
+  bullets: [
+    'Built ADAPT — a meta-agent enabling zero-shot domain transfer (ATC → ICU scheduling) via structural signal remapping, no retraining',
+    'Deployed an OpenEnv-compliant FastAPI + Docker server on Hugging Face Spaces with multi-agent REST endpoints',
+  ],
+  tags: ['PyTorch', 'GRPO', 'QLoRA', 'FastAPI', 'Docker', 'Hugging Face'],
+  github: 'https://github.com/yvishi',
+  live: null,
+}
+
+// ── Tier 3: Small grid ───────────────────────────────────
 const PROJECTS = [
   {
-    num: '02',
-    title: 'Pulse — AI Emergency Hospital App',
-    desc: 'AI-powered mobile app recommending the nearest hospital in real-time using ETA, bed availability, specialty match, and insurance compatibility with Gemini AI triage guidance.',
-    tags: ['React Native', 'Firebase', 'Gemini AI', 'Location API'],
-    github: 'https://github.com/yvishi/AI-Based-Emergency-Hopital-Recommendation',
+    num: '03',
+    title: 'RankX',
+    subtitle: 'Multi-LLM Benchmarking System',
+    desc: 'Runs Claude, GPT-4o, and Gemini simultaneously via asyncio.gather — returning latency, token counts, and cost per model. Blind quality scoring with zero server-side key storage.',
+    tags: ['Claude API', 'GPT-4o', 'Gemini', 'FastAPI'],
+    github: 'https://github.com/yvishi',
     live: null,
   },
   {
-    num: '03',
-    title: 'SplitSmart — Expense Splitter',
+    num: '04',
+    title: 'SplitSmart',
+    subtitle: 'Expense Splitter',
     desc: 'Group expense management app with contact management, group creation, intelligent split logic, and Firestore persistence for shared balances.',
     tags: ['React Native', 'Firestore', 'Expo'],
     github: 'https://github.com/yvishi/SplitSmart',
     live: null,
   },
-  {
-    num: '04',
-    title: 'Room Booking & Task Manager',
-    desc: 'Internal tool suite built during internship at Raise Digital — real-time room availability tracker and drag-and-drop task management system for teams.',
-    tags: ['MERN Stack', 'REST API', 'Drag & Drop'],
-    github: 'https://github.com/yvishi',
-    live: null,
-  },
-  
 ]
 
-const stagger = {
-  visible: { transition: { staggerChildren: 0.1 } }
-}
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  hidden: { opacity: 0, y: 24, filter: 'blur(3px)' },
+  visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 }
+const stagger = { visible: { transition: { staggerChildren: 0.1 } } }
 
 export default function Projects() {
   return (
@@ -73,13 +86,13 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        {/* Featured */}
+        {/* Tier 1 — Featured (full-width) */}
         <motion.div
           className="project-featured"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 40, filter: 'blur(4px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="project-featured-inner">
             <div className="project-featured-vis">
@@ -92,30 +105,76 @@ export default function Projects() {
                   <span key={t} className="project-tag-dark">{t}</span>
                 ))}
               </div>
-
               <p className="project-desc">{FEATURED.desc}</p>
-
               <div className="project-highlights">
                 {FEATURED.highlights.map((h) => (
                   <div className="project-highlight-item" key={h}>{h}</div>
                 ))}
               </div>
-
               <div className="project-actions">
-                <a href={FEATURED.live || '#'} className="btn-project-primary" target="_blank" rel="noopener noreferrer">
+                <a href={FEATURED.live} className="btn-project-primary" target="_blank" rel="noopener noreferrer">
                   <ExternalLink size={13} /> Live Demo
                 </a>
                 <a href={FEATURED.github} className="btn-project-outline" target="_blank" rel="noopener noreferrer">
-                                  <GithubIcon size={13} /> GitHub
+                  <GithubIcon size={13} /> GitHub
                 </a>
               </div>
             </div>
           </div>
         </motion.div>
 
-        {/* Grid */}
+        {/* Tier 2 — AirX mid-size card */}
         <motion.div
-          className="projects-grid"
+          className="project-mid"
+          initial={{ opacity: 0, y: 36, filter: 'blur(4px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="project-mid-header">
+            <div className="project-mid-left">
+              <div className="project-mid-num">{AIRX.num}</div>
+              <div>
+                <div className="project-mid-title">{AIRX.title}</div>
+                <div className="project-mid-subtitle">{AIRX.subtitle}</div>
+              </div>
+            </div>
+            <a href={AIRX.github} className="btn-project-outline" target="_blank" rel="noopener noreferrer">
+              <GithubIcon size={13} /> GitHub
+            </a>
+          </div>
+
+          <p className="project-desc" style={{ marginBottom: '20px' }}>{AIRX.desc}</p>
+
+          <div className="project-mid-stats">
+            {AIRX.stats.map((s) => (
+              <div className="project-stat" key={s.label}>
+                <div className="project-stat-label">{s.label}</div>
+                <div className="project-stat-values">
+                  <span className="project-stat-from">{s.from}</span>
+                  <span className="project-stat-arrow">→</span>
+                  <span className="project-stat-to">{s.to}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <ul className="project-mid-bullets">
+            {AIRX.bullets.map((b) => <li key={b}>{b}</li>)}
+          </ul>
+
+          <div className="project-mid-footer">
+            <div className="project-tags">
+              {AIRX.tags.map((t) => (
+                <span key={t} className="project-tag-dark">{t}</span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Tier 3 — Small 2-col grid */}
+        <motion.div
+          className="projects-grid projects-grid--two"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
@@ -126,11 +185,12 @@ export default function Projects() {
               <div className="project-card-top">
                 <div className="project-card-num">{p.num}</div>
                 <div className="project-card-title">{p.title}</div>
+                {p.subtitle && <div className="project-card-subtitle">{p.subtitle}</div>}
                 <div className="project-card-desc">{p.desc}</div>
               </div>
               <div className="project-card-bottom">
                 <div className="project-card-tags">
-                  {p.tags.slice(0, 2).map((t) => (
+                  {p.tags.slice(0, 3).map((t) => (
                     <span key={t} className="project-tag-dark">{t}</span>
                   ))}
                 </div>

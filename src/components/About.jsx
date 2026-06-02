@@ -3,8 +3,8 @@ import { MapPin, Calendar, Code2 } from 'lucide-react'
 import './About.css'
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } }
+  hidden: { opacity: 0, y: 24, filter: 'blur(3px)' },
+  visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 }
 
 const INFO_ITEMS = [
@@ -65,10 +65,10 @@ export default function About() {
 
           <motion.div
             className="about-side"
-            initial={{ opacity: 0, x: 32 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: 32, filter: 'blur(3px)' }}
+            whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.65, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           >
             {INFO_ITEMS.map((item) => (
               <div className="about-info-card" key={item.label}>

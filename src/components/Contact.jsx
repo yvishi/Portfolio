@@ -5,8 +5,8 @@ import { GithubIcon, LinkedinIcon } from './BrandIcons'
 import './Contact.css'
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] } }
+  hidden: { opacity: 0, y: 28, filter: 'blur(3px)' },
+  visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 }
 
 const CONTACT_ITEMS = [
