@@ -1,8 +1,16 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import emailjs from '@emailjs/browser'
 import { motion } from 'framer-motion'
 import { Mail, MapPin, Send, CheckCircle } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from './BrandIcons'
 import './Contact.css'
+
+// ── EmailJS credentials ──────────────────────────────────
+// Replace these three values after creating your EmailJS account.
+// See: https://www.emailjs.com/docs/tutorial/overview/
+const EMAILJS_SERVICE_ID  = 'service_tph33lx'   // e.g. 'service_abc123'
+const EMAILJS_TEMPLATE_ID = 'template_3s2bj7q'  // e.g. 'template_xyz789'
+const EMAILJS_PUBLIC_KEY  = 'sEJ7wNYtriFxgLAma'   // e.g. 'AbCdEfGhIjKl12345'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28, filter: 'blur(3px)' },
@@ -25,35 +33,37 @@ const CONTACT_ITEMS = [
 ]
 
 export default function Contact() {
+  const formRef = useRef(null)
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+
+  // DOM name attrs use emailjs convention (from_name, from_email); state uses short keys
+  const domToState = { from_name: 'name', from_email: 'email', subject: 'subject', message: 'message' }
 
   const handleChange = (e) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    const key = domToState[e.target.name] ?? e.target.name
+    setForm((prev) => ({ ...prev, [key]: e.target.value }))
+    if (error) setError('')
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
+    setError('')
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-
-      if (!res.ok) {
-        const err = await res.json().catch(() => ({ message: 'Send failed' }))
-        throw new Error(err.message || 'Send failed')
-      }
-
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      )
       setSubmitted(true)
       setForm({ name: '', email: '', subject: '', message: '' })
     } catch (err) {
-      console.error('Contact send error:', err)
-      // Basic user feedback — you can replace with nicer UI later
-      alert('Failed to send message. Please try again later.')
+      console.error('EmailJS error:', err)
+      setError('Failed to send message. Please try again or email directly.')
     } finally {
       setLoading(false)
     }
@@ -131,13 +141,13 @@ export default function Contact() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <form className="contact-form" onSubmit={handleSubmit} id="contact-form">
+            <form className="contact-form" onSubmit={handleSubmit} id="contact-form" ref={formRef}>
               <div className="form-row">
                 <div className="form-group">
                   <label className="form-label" htmlFor="contact-name">Name</label>
                   <input
                     id="contact-name"
-                    name="name"
+                    name="from_name"
                     type="text"
                     placeholder="Your name"
                     className="form-input"
@@ -151,7 +161,7 @@ export default function Contact() {
                   <label className="form-label" htmlFor="contact-email">Email</label>
                   <input
                     id="contact-email"
-                    name="email"
+                    name="from_email"
                     type="email"
                     placeholder="you@example.com"
                     className="form-input"
@@ -188,6 +198,10 @@ export default function Contact() {
                   rows={5}
                 />
               </div>
+              {error && (
+                <div className="form-error">{error}</div>
+              )}
+
               <button
                 type="submit"
                 className="form-submit"

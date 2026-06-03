@@ -11,7 +11,6 @@ import Skills from './components/Skills'
 import Awards from './components/Awards'
 import Contact from './components/Contact'
 import LoadingScreen from './components/LoadingScreen'
-import ScrollSpine from './components/ScrollSpine'
 
 const SECTIONS = ['hero', 'about', 'education', 'experience', 'projects', 'skills', 'awards', 'contact']
 
@@ -54,7 +53,7 @@ export default function App() {
         ([entry]) => {
           if (entry.isIntersecting) setActiveSection(id)
         },
-        { threshold: 0.35, rootMargin: '-10% 0px -55% 0px' }
+        { threshold: 0.1, rootMargin: '-10% 0px -55% 0px' }
       )
 
       observer.observe(el)
@@ -76,9 +75,6 @@ export default function App() {
         className="scroll-progress"
         style={{ scaleX: scrollYProgress }}
       />
-
-      {/* Scroll spine indicator */}
-      <ScrollSpine activeSection={activeSection} />
 
       <Navbar activeSection={activeSection} />
       <main>
