@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useScroll } from 'framer-motion'
 import { Analytics } from '@vercel/analytics/react'
+import { ReactLenis } from 'lenis/react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -40,6 +41,14 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('hero')
   const isLoading = useLoadingState()
   const { scrollYProgress } = useScroll()
+  const lenisRef = useRef()
+
+  useEffect(() => {
+    const lenis = lenisRef.current?.lenis
+    if (!lenis) return
+    if (isLoading) lenis.stop()
+    else lenis.start()
+  }, [isLoading])
 
   // Intersection Observer for active section tracking
   useEffect(() => {
@@ -64,7 +73,7 @@ export default function App() {
   }, [])
 
   return (
-    <>
+    <ReactLenis root ref={lenisRef} options={{ lerp: 0.08, duration: 1.4, smoothWheel: true }}>
       {/* Loading screen — slides up when done */}
       <AnimatePresence>
         {isLoading && <LoadingScreen isVisible={isLoading} />}
@@ -88,6 +97,6 @@ export default function App() {
         <Contact />
       </main>
       <Analytics />
-    </>
+    </ReactLenis>
   )
 }
