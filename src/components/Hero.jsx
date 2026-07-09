@@ -4,11 +4,11 @@ import { GithubIcon, LinkedinIcon } from './BrandIcons'
 import './Hero.css'
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
+  hidden: { opacity: 0, y: 32, filter: 'blur(4px)' },
   visible: (delay = 0) => ({
-    opacity: 1, y: 0,
-    transition: { duration: 0.7, delay, ease: [0.25, 0.46, 0.45, 0.94] }
-  })
+    opacity: 1, y: 0, filter: 'blur(0px)',
+    transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
+  }),
 }
 
 export default function Hero() {

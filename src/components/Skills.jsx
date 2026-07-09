@@ -1,13 +1,20 @@
 import { motion } from 'framer-motion'
-import { Code2, Globe, Database, Wrench, Smartphone, Cloud } from 'lucide-react'
+import { Code2, Globe, Database, Wrench, Cloud, Brain, Server } from 'lucide-react'
 import './Skills.css'
 
 const SKILLS = [
   {
+    icon: Brain,
+    title: 'ML & Deep Learning',
+    sub: 'AI & RL systems',
+    tags: ['PyTorch', 'Keras', 'Reinforcement Learning', 'Multi-Agent Systems', 'GRPO', 'QLoRA', 'Hugging Face', 'Jupyter'],
+    featured: true,
+  },
+  {
     icon: Code2,
     title: 'Languages',
     sub: 'Core programming',
-    tags: ['C++', 'JavaScript', 'TypeScript', 'Java', 'Python', 'SQL', 'HTML5', 'CSS3'],
+    tags: ['C++', 'Python', 'JavaScript', 'Java', 'SQL', 'HTML5', 'CSS3'],
   },
   {
     icon: Globe,
@@ -16,35 +23,35 @@ const SKILLS = [
     tags: ['React.js', 'React Native', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Expo'],
   },
   {
-    icon: Database,
+    icon: Server,
     title: 'Backend',
     sub: 'Server & APIs',
-    tags: ['Node.js', 'Express.js', 'REST APIs', 'JWT Auth', 'WebSockets'],
+    tags: ['Node.js', 'Express.js', 'FastAPI', 'REST APIs', 'JWT Auth', 'Docker'],
   },
   {
     icon: Database,
     title: 'Databases',
     sub: 'Data persistence',
-    tags: ['MongoDB', 'Mongoose', 'Firebase', 'Firestore', 'Redis', 'PostgreSQL'],
+    tags: ['MongoDB', 'MySQL', 'Firebase', 'Firestore', 'Redis', 'PostgreSQL'],
   },
   {
     icon: Wrench,
     title: 'Tools & DevOps',
     sub: 'Build & deploy',
-    tags: ['Git', 'GitHub', 'AWS', 'Vercel', 'Postman', 'VS Code', 'npm', 'Linux'],
+    tags: ['Git', 'GitHub', 'AWS', 'Vercel', 'Postman', 'Hugging Face', 'Linux'],
   },
   {
     icon: Cloud,
     title: 'Integrations',
     sub: 'Third-party services',
-    tags: ['Stripe', 'Clerk', 'EmailJS', 'MongoDB Atlas', 'Cloudinary'],
+    tags: ['Stripe', 'Clerk', 'Claude API', 'OpenAI', 'Gemini', 'Cloudinary'],
   },
 ]
 
 const stagger = { visible: { transition: { staggerChildren: 0.08 } } }
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55 } }
+  hidden: { opacity: 0, y: 20, filter: 'blur(3px)' },
+  visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 }
 
 export default function Skills() {
@@ -71,8 +78,8 @@ export default function Skills() {
           viewport={{ once: true, margin: '-60px' }}
           variants={stagger}
         >
-          {SKILLS.map(({ icon: Icon, title, sub, tags }) => (
-            <motion.div className="skill-group" key={title} variants={fadeUp}>
+          {SKILLS.map(({ icon: Icon, title, sub, tags, featured }) => (
+            <motion.div className={`skill-group${featured ? ' skill-group--featured' : ''}`} key={title} variants={fadeUp}>
               <div className="skill-group-header">
                 <div className="skill-group-icon">
                   <Icon size={18} />

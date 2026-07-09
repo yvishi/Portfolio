@@ -152,6 +152,29 @@
   gap: var(--space-2);
 }
 
+/* Accent state — current / most recent internship */
+.exp-dot--accent {
+  background: var(--teal);
+  border-color: rgba(14, 165, 160, 0.5);
+  box-shadow: 0 0 16px rgba(14, 165, 160, 0.35);
+}
+.exp-dot--accent svg { color: white; }
+
+.exp-item--accent .exp-card {
+  border-color: rgba(14, 165, 160, 0.22);
+  background: white;
+}
+.exp-item--accent .exp-card:hover {
+  border-color: rgba(14, 165, 160, 0.45);
+  box-shadow: 0 4px 24px rgba(14, 165, 160, 0.1);
+}
+
+.exp-type-badge--active {
+  background: rgba(14, 165, 160, 0.15);
+  color: var(--teal);
+  border: 1px solid rgba(14, 165, 160, 0.3);
+}
+
 @media (max-width: 600px) {
   .exp-meta { text-align: left; }
   .exp-header { flex-direction: column; gap: var(--space-2); }

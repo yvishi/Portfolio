@@ -6,6 +6,7 @@
 
 const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY
 const TO_EMAIL = process.env.TO_EMAIL || 'y.v.s.vishnoi@gmail.com'
+const FROM_EMAIL = process.env.FROM_EMAIL || 'y.v.s.vishnoi@gmail.com'
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
@@ -31,7 +32,7 @@ module.exports = async (req, res) => {
           subject: subject || 'New message from portfolio contact form',
         },
       ],
-      from: { email: 'no-reply@portfolio', name: name || 'Website Visitor' },
+      from: { email: FROM_EMAIL, name: 'Portfolio Contact Form' },
       reply_to: { email },
       content: [
         {
