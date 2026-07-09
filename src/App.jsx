@@ -1,3 +1,5 @@
+import { useState, useEffect, useRef, useCallback } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useScroll } from 'framer-motion'
 import { Analytics } from '@vercel/analytics/react'
@@ -97,6 +99,7 @@ export default function App() {
         <Contact />
       </main>
       <Analytics />
+    </>
     </ReactLenis>
   )
 }
