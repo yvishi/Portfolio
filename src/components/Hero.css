@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: var(--navy);
+  background: var(--chassis);
   overflow: hidden;
 }
 
@@ -22,8 +22,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 60% at 85% 40%, rgba(14,165,160,0.16) 0%, transparent 65%),
-    radial-gradient(ellipse 50% 50% at 10% 80%, rgba(30,58,95,0.6) 0%, transparent 60%);
+    radial-gradient(ellipse 70% 60% at 85% 40%, rgba(255,158,44,0.08) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 10% 80%, rgba(76,90,102,0.35) 0%, transparent 60%);
 }
 
 .hero-grid {
@@ -45,7 +45,7 @@
 .hero-orb-1 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(14,165,160,0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255,158,44,0.08) 0%, transparent 70%);
   top: -80px;
   right: 5%;
   animation-delay: 0s;
@@ -53,7 +53,7 @@
 .hero-orb-2 {
   width: 280px;
   height: 280px;
-  background: radial-gradient(circle, rgba(30,58,95,0.4) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(76,90,102,0.3) 0%, transparent 70%);
   bottom: 10%;
   left: -50px;
   animation-delay: -3s;
@@ -79,7 +79,7 @@
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--signal);
   margin-bottom: var(--space-5);
   display: flex;
   align-items: center;
@@ -90,7 +90,7 @@
   display: block;
   width: 28px;
   height: 1px;
-  background: var(--teal);
+  background: var(--signal);
   flex-shrink: 0;
 }
 
@@ -98,14 +98,14 @@
   font-family: var(--font-display);
   font-size: clamp(46px, 7vw, 88px);
   font-weight: 400;
-  color: white;
+  color: var(--paper-on-dark);
   line-height: 1.02;
   letter-spacing: -1.5px;
   margin-bottom: var(--space-3);
 }
 
 .hero-name .name-accent {
-  color: var(--teal);
+  color: var(--signal);
   display: block;
   font-style: italic;
   font-size: 0.92em;
@@ -115,14 +115,14 @@
   font-family: var(--font-display);
   font-size: clamp(18px, 2.5vw, 26px);
   font-weight: 400;
-  color: rgba(255,255,255,0.45);
+  color: var(--wire);
   margin-bottom: var(--space-6);
   letter-spacing: -0.2px;
 }
 
 .hero-tagline {
   font-size: 16px;
-  color: rgba(255,255,255,0.6);
+  color: rgba(243,239,228,0.6);
   max-width: 520px;
   line-height: 1.7;
   font-weight: 300;
@@ -141,7 +141,7 @@
   display: flex;
   gap: var(--space-8);
   padding-top: var(--space-8);
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(243,239,228,0.08);
   flex-wrap: wrap;
 }
 
@@ -154,12 +154,12 @@
   font-family: var(--font-display);
   font-size: 28px;
   font-weight: 400;
-  color: white;
+  color: var(--signal);
   line-height: 1;
 }
 .hero-stat-value em {
   font-style: normal;
-  color: var(--teal);
+  color: var(--signal-dim);
   font-size: 0.7em;
 }
 .hero-stat-label {
@@ -167,7 +167,7 @@
   font-size: 9.5px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
+  color: var(--wire);
 }
 
 /* Social Links */
@@ -185,17 +185,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255,255,255,0.12);
+  border: 1px solid rgba(243,239,228,0.12);
   border-radius: var(--radius);
-  color: rgba(255,255,255,0.5);
+  color: rgba(243,239,228,0.5);
   text-decoration: none;
   transition: var(--transition);
-  background: rgba(255,255,255,0.04);
+  background: rgba(243,239,228,0.04);
 }
 .social-btn:hover {
-  border-color: var(--teal);
-  color: var(--teal);
-  background: rgba(14,165,160,0.08);
+  border-color: var(--signal);
+  color: var(--signal);
+  background: rgba(255,158,44,0.08);
   transform: translateY(-2px);
 }
 
@@ -209,7 +209,7 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-2);
-  color: rgba(255,255,255,0.25);
+  color: rgba(243,239,228,0.25);
   font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: 0.15em;
@@ -218,12 +218,32 @@
 .hero-scroll-line {
   width: 1px;
   height: 36px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.25), transparent);
+  background: linear-gradient(to bottom, rgba(243,239,228,0.25), transparent);
   animation: scrollPulse 2s ease-in-out infinite;
 }
 @keyframes scrollPulse {
   0%, 100% { opacity: 0.3; transform: scaleY(1); }
   50%       { opacity: 0.8; transform: scaleY(1.15); }
+}
+
+.hero-telemetry {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: var(--wire);
+  margin-bottom: var(--space-4);
+}
+
+.hero-telemetry-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 6px rgba(255, 158, 44, 0.7);
 }
 
 @media (max-width: 768px) {

@@ -40,6 +40,17 @@ export default function Hero() {
           Computer Engineer &amp; Full-Stack Developer
         </motion.div>
 
+        <motion.div
+          className="hero-telemetry"
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={0.02}
+        >
+          <span className="hero-telemetry-dot" aria-hidden="true" />
+          role: ai/rl software engineer · focus: applied ml systems · status: available
+        </motion.div>
+
         <motion.h1
           className="hero-name"
           variants={fadeUp}
