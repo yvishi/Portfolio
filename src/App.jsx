@@ -12,6 +12,7 @@ import Skills from './components/Skills'
 import Awards from './components/Awards'
 import Contact from './components/Contact'
 import LoadingScreen from './components/LoadingScreen'
+import ScrollSpine from './components/ScrollSpine'
 
 const SECTIONS = ['hero', 'about', 'education', 'experience', 'projects', 'skills', 'awards', 'contact']
 
@@ -84,6 +85,8 @@ export default function App() {
         className="scroll-progress"
         style={{ scaleX: scrollYProgress }}
       />
+
+      <ScrollSpine activeSection={activeSection} />
 
       <Navbar activeSection={activeSection} />
       <main>
