@@ -1,6 +1,6 @@
 /* Experience Section */
 .experience-section {
-  background: white;
+  background: var(--panel);
 }
 
 .exp-timeline {
@@ -15,7 +15,7 @@
   top: 0;
   bottom: 0;
   width: 1px;
-  background: linear-gradient(to bottom, var(--teal), transparent);
+  background: linear-gradient(to bottom, var(--rule), transparent);
 }
 
 .exp-item {
@@ -37,8 +37,8 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--navy);
-  border: 2px solid rgba(14,165,160,0.3);
+  background: var(--panel-2);
+  border: 2px solid var(--rule);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,19 +46,18 @@
   position: relative;
   z-index: 1;
 }
-.exp-dot svg { color: var(--teal); }
+.exp-dot svg { color: var(--wire); }
 
 .exp-card {
   flex: 1;
-  background: var(--off-white);
-  border: 1px solid var(--border);
+  background: var(--panel);
+  border: 1px solid var(--rule);
   border-radius: var(--radius-md);
   padding: var(--space-6) var(--space-8);
   transition: var(--transition);
 }
 .exp-card:hover {
-  border-color: rgba(14,165,160,0.3);
-  box-shadow: var(--shadow);
+  box-shadow: 0 2px 0 var(--signal);
 }
 
 .exp-header {
@@ -74,13 +73,13 @@
   font-family: var(--font-display);
   font-size: 20px;
   font-weight: 400;
-  color: var(--navy);
+  color: var(--ink);
   margin-bottom: 4px;
 }
 
 .exp-company {
   font-size: 13.5px;
-  color: var(--teal-dark);
+  color: var(--signal-dim);
   font-weight: 500;
 }
 
@@ -96,12 +95,12 @@
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.1em;
-  color: var(--muted);
+  color: var(--ink-soft);
 }
 
 .exp-location {
   font-size: 12px;
-  color: var(--muted);
+  color: var(--ink-soft);
 }
 
 .exp-type-badge {
@@ -112,14 +111,15 @@
   text-transform: uppercase;
   padding: 2px 8px;
   border-radius: 20px;
-  background: rgba(14,165,160,0.1);
-  color: var(--teal-dark);
+  background: var(--panel-2);
+  color: var(--wire);
+  border: 1px solid var(--rule);
   align-self: flex-end;
 }
 
 .exp-desc {
   font-size: 14.5px;
-  color: var(--text);
+  color: var(--ink-soft);
   line-height: 1.7;
   margin-bottom: var(--space-4);
 }
@@ -136,12 +136,12 @@
   align-items: flex-start;
   gap: var(--space-2);
   font-size: 13.5px;
-  color: var(--muted);
+  color: var(--ink-soft);
   line-height: 1.55;
 }
 .exp-bullets li::before {
   content: '→';
-  color: var(--teal);
+  color: var(--signal-dim);
   flex-shrink: 0;
   margin-top: 1px;
 }
@@ -154,25 +154,25 @@
 
 /* Accent state — current / most recent internship */
 .exp-dot--accent {
-  background: var(--teal);
-  border-color: rgba(14, 165, 160, 0.5);
-  box-shadow: 0 0 16px rgba(14, 165, 160, 0.35);
+  background: var(--signal);
+  border-color: var(--signal);
+  box-shadow: 0 0 16px rgba(255, 158, 44, 0.35);
 }
-.exp-dot--accent svg { color: white; }
+.exp-dot--accent svg { color: var(--chassis); }
 
 .exp-item--accent .exp-card {
-  border-color: rgba(14, 165, 160, 0.22);
-  background: white;
+  border-color: var(--signal-dim);
+  background: var(--panel);
 }
 .exp-item--accent .exp-card:hover {
-  border-color: rgba(14, 165, 160, 0.45);
-  box-shadow: 0 4px 24px rgba(14, 165, 160, 0.1);
+  border-color: var(--signal);
+  box-shadow: 0 4px 24px rgba(255, 158, 44, 0.18);
 }
 
 .exp-type-badge--active {
-  background: rgba(14, 165, 160, 0.15);
-  color: var(--teal);
-  border: 1px solid rgba(14, 165, 160, 0.3);
+  background: rgba(255, 158, 44, 0.15);
+  color: var(--signal-dim);
+  border: 1px solid rgba(255, 158, 44, 0.35);
 }
 
 @media (max-width: 600px) {
