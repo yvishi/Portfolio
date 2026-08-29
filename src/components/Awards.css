@@ -1,6 +1,6 @@
 /* Awards Section */
 .awards-section {
-  background: white;
+  background: var(--panel);
 }
 
 .awards-grid {
@@ -12,8 +12,8 @@
 }
 
 .award-card {
-  background: var(--off-white);
-  border: 1px solid var(--border);
+  background: var(--panel-2);
+  border: 1px solid var(--rule);
   border-radius: var(--radius-md);
   padding: 36px 36px 32px;
   position: relative;
@@ -29,18 +29,18 @@
   right: 0;
   height: 3px;
   border-radius: var(--radius-md) var(--radius-md) 0 0;
-  background: linear-gradient(90deg, var(--gold), #e8c55a);
+  background: var(--signal);
 }
 .award-card:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 2px 0 var(--signal);
   transform: translateY(-4px);
-  border-color: rgba(201,166,61,0.25);
+  border-color: var(--signal);
 }
 
 .award-icon {
   width: 48px;
   height: 48px;
-  background: var(--gold-lt);
+  background: var(--panel);
   border-radius: var(--radius);
   display: flex;
   align-items: center;
@@ -48,20 +48,20 @@
   margin-bottom: 20px;
   flex-shrink: 0;
 }
-.award-icon svg { color: var(--gold-dark); width: 22px; height: 22px; }
+.award-icon svg { color: var(--signal); width: 22px; height: 22px; }
 
 .award-title {
   font-family: var(--font-display);
   font-size: 22px;
   font-weight: 400;
-  color: var(--navy);
+  color: var(--ink);
   margin-bottom: 10px;
   line-height: 1.2;
 }
 
 .award-org {
   font-size: 12px;
-  color: var(--gold-dark);
+  color: var(--signal-dim);
   font-weight: 500;
   margin-bottom: 16px;
   font-family: var(--font-mono);
@@ -71,7 +71,7 @@
 
 .award-desc {
   font-size: 14px;
-  color: var(--muted);
+  color: var(--ink-soft);
   line-height: 1.7;
   flex: 1;
 }
@@ -80,10 +80,10 @@
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.14em;
-  color: var(--muted-lt);
+  color: var(--ink-soft);
   margin-top: 24px;
   padding-top: 16px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--rule);
   text-transform: uppercase;
 }
 
