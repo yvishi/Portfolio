@@ -102,7 +102,7 @@ export default function Projects() {
             <div className="project-featured-body">
               <div className="project-tags" style={{ marginBottom: '16px' }}>
                 {FEATURED.tags.map((t) => (
-                  <span key={t} className="project-tag-dark">{t}</span>
+                  <span key={t} className="tag tag-teal">{t}</span>
                 ))}
               </div>
               <p className="project-desc">{FEATURED.desc}</p>
@@ -166,7 +166,7 @@ export default function Projects() {
           <div className="project-mid-footer">
             <div className="project-tags">
               {AIRX.tags.map((t) => (
-                <span key={t} className="project-tag-dark">{t}</span>
+                <span key={t} className="tag tag-teal">{t}</span>
               ))}
             </div>
           </div>
@@ -191,7 +191,7 @@ export default function Projects() {
               <div className="project-card-bottom">
                 <div className="project-card-tags">
                   {p.tags.slice(0, 3).map((t) => (
-                    <span key={t} className="project-tag-dark">{t}</span>
+                    <span key={t} className="tag tag-teal">{t}</span>
                   ))}
                 </div>
                 <div className="project-card-links">
