@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence, useScroll } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, MotionConfig } from 'framer-motion'
 import { Analytics } from '@vercel/analytics/react'
 import { ReactLenis } from 'lenis/react'
 import Navbar from './components/Navbar'
@@ -38,11 +38,29 @@ function useLoadingState() {
   return isLoading
 }
 
+function usePrefersReducedMotion() {
+  const [reduced, setReduced] = useState(() =>
+    typeof window !== 'undefined' && window.matchMedia
+      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      : false
+  )
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const handler = (e) => setReduced(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
+
+  return reduced
+}
+
 export default function App() {
   const [activeSection, setActiveSection] = useState('hero')
   const isLoading = useLoadingState()
   const { scrollYProgress } = useScroll()
   const lenisRef = useRef()
+  const prefersReducedMotion = usePrefersReducedMotion()
 
   useEffect(() => {
     const lenis = lenisRef.current?.lenis
@@ -74,32 +92,42 @@ export default function App() {
   }, [])
 
   return (
-    <ReactLenis root ref={lenisRef} options={{ lerp: 0.08, duration: 1.4, smoothWheel: true }}>
-      {/* Loading screen — slides up when done */}
-      <AnimatePresence>
-        {isLoading && <LoadingScreen isVisible={isLoading} />}
-      </AnimatePresence>
+    <MotionConfig reducedMotion="user">
+      <ReactLenis
+        root
+        ref={lenisRef}
+        options={
+          prefersReducedMotion
+            ? { lerp: 1, duration: 0, smoothWheel: false }
+            : { lerp: 0.08, duration: 1.4, smoothWheel: true }
+        }
+      >
+        {/* Loading screen — slides up when done */}
+        <AnimatePresence>
+          {isLoading && <LoadingScreen isVisible={isLoading} />}
+        </AnimatePresence>
 
-      {/* Scroll progress bar */}
-      <motion.div
-        className="scroll-progress"
-        style={{ scaleX: scrollYProgress }}
-      />
+        {/* Scroll progress bar */}
+        <motion.div
+          className="scroll-progress"
+          style={{ scaleX: scrollYProgress }}
+        />
 
-      <ScrollSpine activeSection={activeSection} />
+        <ScrollSpine activeSection={activeSection} />
 
-      <Navbar activeSection={activeSection} />
-      <main>
-        <Hero />
-        <About />
-        <Education />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Awards />
-        <Contact />
-      </main>
-      <Analytics />
-    </ReactLenis>
+        <Navbar activeSection={activeSection} />
+        <main>
+          <Hero />
+          <About />
+          <Education />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Awards />
+          <Contact />
+        </main>
+        <Analytics />
+      </ReactLenis>
+    </MotionConfig>
   )
 }

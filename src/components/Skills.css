@@ -80,7 +80,7 @@
   background: rgba(255,158,44,0.14);
 }
 .skill-group--featured .skill-group-icon svg { color: var(--signal); }
-.skill-group--featured .skill-group-sub { color: var(--signal-dim); }
+.skill-group--featured .skill-group-sub { color: var(--signal-dim-text); }
 
 @media (max-width: 900px) {
   .skills-grid { grid-template-columns: repeat(2, 1fr); }

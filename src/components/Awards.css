@@ -61,7 +61,7 @@
 
 .award-org {
   font-size: 12px;
-  color: var(--signal-dim);
+  color: var(--signal-dim-text);
   font-weight: 500;
   margin-bottom: 16px;
   font-family: var(--font-mono);

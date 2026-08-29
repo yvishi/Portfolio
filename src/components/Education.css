@@ -131,6 +131,7 @@
   color: var(--ink-soft);
 }
 .edu-detail-row svg { color: var(--signal); flex-shrink: 0; }
+.edu-card.gold-accent .edu-detail-row svg { color: var(--wire); }
 
 @media (max-width: 700px) {
   .edu-grid { grid-template-columns: 1fr; }

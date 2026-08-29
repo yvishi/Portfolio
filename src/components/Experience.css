@@ -79,7 +79,7 @@
 
 .exp-company {
   font-size: 13.5px;
-  color: var(--signal-dim);
+  color: var(--signal-dim-text);
   font-weight: 500;
 }
 
@@ -141,7 +141,7 @@
 }
 .exp-bullets li::before {
   content: '→';
-  color: var(--signal-dim);
+  color: var(--signal-dim-text);
   flex-shrink: 0;
   margin-top: 1px;
 }
@@ -171,7 +171,7 @@
 
 .exp-type-badge--active {
   background: rgba(255, 158, 44, 0.15);
-  color: var(--signal-dim);
+  color: var(--signal-dim-text);
   border: 1px solid rgba(255, 158, 44, 0.35);
 }
 

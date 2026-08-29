@@ -30,7 +30,7 @@
 }
 
 .about-highlight {
-  color: var(--signal-dim);
+  color: var(--signal-dim-text);
   font-weight: 500;
 }
 
@@ -63,7 +63,7 @@
   font-size: 9.5px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--signal-dim);
+  color: var(--signal-dim-text);
   margin-bottom: var(--space-2);
   display: block;
 }

@@ -54,6 +54,6 @@
 .loading-status {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--wire);
+  color: var(--wire-text);
   letter-spacing: 0.04em;
 }

@@ -9,24 +9,7 @@
 }
 
 :root {
-  /* Color Tokens */
-  --navy:       #0B1D35;
-  --navy-mid:   #152D4E;
-  --steel:      #1E3A5F;
-  --teal:       #0EA5A0;
-  --teal-dark:  #0a7a76;
-  --teal-lt:    #D0F5F3;
-  --gold:       #C9A63D;
-  --gold-lt:    #FDF5DC;
-  --gold-dark:  #8a6d1a;
-  --off-white:  #F7F5F0;
-  --white:      #FFFFFF;
-  --muted:      #6B7280;
-  --muted-lt:   #9CA3AF;
-  --border:     #E4E1DA;
-  --text:       #1A1A2A;
-
-  /* Instrument Panel tokens (new system) */
+  /* Instrument Panel tokens */
   --chassis:      #14161A;
   --chassis-2:    #1B1E24;
   --panel:        #F3EFE4;
@@ -39,6 +22,12 @@
   --wire:         #4C5A66;
   --rule:         #DAD3C0;
   --rule-dark:    #2A2D33;
+
+  /* Text-only contrast overrides — for small text where the tokens above dip
+     below WCAG AA (4.5:1). Do not use for borders/backgrounds/large text,
+     where --signal-dim and --wire above remain correct. */
+  --signal-dim-text: #8f5510; /* --signal-dim, darkened for small text on --panel / --panel-2 */
+  --wire-text:       #8A97A3; /* --wire, lightened for small text on --chassis */
 
   /* Typography */
   --font-display: 'Instrument Serif', Georgia, serif;
@@ -99,6 +88,12 @@ body {
   color: var(--chassis);
 }
 
+/* ── Keyboard focus ── */
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+}
+
 /* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--panel-2); }
@@ -113,10 +108,6 @@ body {
 .font-mono    { font-family: var(--font-mono); }
 .font-body    { font-family: var(--font-body); }
 
-.text-navy    { color: var(--navy); }
-.text-teal    { color: var(--teal); }
-.text-gold    { color: var(--gold); }
-.text-muted   { color: var(--muted); }
 .text-white   { color: white; }
 
 /* ── Layout Utilities ── */
@@ -136,7 +127,7 @@ body {
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--signal-dim);
+  color: var(--signal-dim-text);
   margin-bottom: var(--space-2);
   display: block;
 }
@@ -173,7 +164,7 @@ body {
 
 .tag-teal {
   background: rgba(255,158,44,0.12);
-  color: var(--signal-dim);
+  color: var(--signal-dim-text);
   border: 1px solid rgba(255,158,44,0.25);
 }
 
@@ -253,7 +244,7 @@ body {
 /* ── Divider ── */
 .divider {
   border: none;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--rule);
   margin: 0;
 }
 
@@ -286,4 +277,15 @@ body {
 
 @media (max-width: 480px) {
   .container { padding: 0 var(--space-4); }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
