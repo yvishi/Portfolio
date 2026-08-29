@@ -32,7 +32,7 @@
 
 /* Logo */
 .nav-logo {
-  font-family: var(--font-display);
+  font-family: var(--font-mono);
   font-size: 20px;
   font-weight: 400;
   color: var(--paper-on-dark);
