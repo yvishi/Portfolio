@@ -5,6 +5,10 @@ import logo from '../assets/initials-removebg-preview.png'
 
 const NAV_ITEMS = ['About', 'Education', 'Experience', 'Projects', 'Skills', 'Awards', 'Contact']
 
+function getScrollBehavior() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+}
+
 export default function Navbar({ activeSection }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -17,12 +21,12 @@ export default function Navbar({ activeSection }) {
 
   const scrollTo = (id) => {
     const el = document.getElementById(id.toLowerCase())
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (el) el.scrollIntoView({ behavior: getScrollBehavior(), block: 'start' })
     setMobileOpen(false)
   }
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0, behavior: getScrollBehavior() })
     setMobileOpen(false)
   }
 

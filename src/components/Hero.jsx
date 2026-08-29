@@ -11,13 +11,17 @@ const fadeUp = {
   }),
 }
 
+function getScrollBehavior() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+}
+
 export default function Hero() {
   const scrollToProjects = () => {
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
+    document.getElementById('projects')?.scrollIntoView({ behavior: getScrollBehavior() })
   }
 
   const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+    document.getElementById('contact')?.scrollIntoView({ behavior: getScrollBehavior() })
   }
 
   return (

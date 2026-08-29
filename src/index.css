@@ -89,9 +89,12 @@ body {
 }
 
 /* ── Keyboard focus ── */
+/* Amber ring plus a dark halo so the ring stays >=3:1 (SC 1.4.11) on both
+   the light --panel sections and the dark Hero/--chassis background. */
 :focus-visible {
   outline: 2px solid var(--signal);
   outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(27,27,26,0.6);
 }
 
 /* ── Scrollbar ── */
