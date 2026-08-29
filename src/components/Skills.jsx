@@ -91,7 +91,7 @@ export default function Skills() {
               </div>
               <div className="skill-tags">
                 {tags.map((t) => (
-                  <span className="skill-tag" key={t}>{t}</span>
+                  <span className="tag tag-teal skill-tag" key={t}>{t}</span>
                 ))}
               </div>
             </motion.div>
