@@ -9,12 +9,13 @@ const EXP_DATA = [
     duration: 'May 2026 — Present',
     location: 'Remote',
     type: 'Internship',
-    desc: 'Building AI-powered product features and contributing to core platform development at an early-stage AI company.',
+    desc: 'Designing and developing end-to-end product features across frontend, backend, and AI-driven workflows in a fast-paced startup environment.',
     bullets: [
-      'Developed a document integrity verification system that validates the authenticity of OCR-scanned documents, cross-checking structural and semantic signals to flag tampered or invalid submissions',
-      'Contributing to feature development and bug fixes across the core AI platform pipeline',
+      'Built the Document Hub, giving users a centralized interface to manage and access uploaded documents efficiently',
+      "Designed the company's upcoming landing page from scratch — collaborating on UX, visual design, and frontend implementation",
+      'Maintaining the production platform by resolving bugs, delivering feature improvements, and contributing to product workflow and architecture discussions with the engineering team',
     ],
-    tags: ['Python', 'OCR', 'Document AI', 'REST APIs', 'Feature Engineering'],
+    tags: ['React', 'Node.js', 'AI Workflows', 'Full-Stack', 'Product Design'],
     accent: true,
   },
   {

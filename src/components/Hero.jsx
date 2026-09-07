@@ -52,7 +52,7 @@ export default function Hero() {
           custom={0.02}
         >
           <span className="hero-telemetry-dot" aria-hidden="true" />
-          role: ai/rl software engineer · focus: applied ml systems · status: available
+          role: ai software engineer · focus: full-stack & ai-driven products · status: available
         </motion.div>
 
         <motion.h1
@@ -83,8 +83,8 @@ export default function Hero() {
           animate="visible"
           custom={0.5}
         >
-          Second-year Computer Engineering student at Thapar Institute of Engineering &amp; Technology
-          with a 9.67 CGPA — building production-grade applications that people actually use.
+          Third-year Computer Engineering student at Thapar Institute of Engineering &amp; Technology
+          with a 9.49 CGPA — building production-grade applications that people actually use.
         </motion.p>
 
         <motion.div
@@ -110,8 +110,8 @@ export default function Hero() {
           custom={0.75}
         >
           {[
-            { value: '9.67', unit: '/10', label: 'CGPA — Thapar Institute' },
-            { value: '97.5', unit: '%', label: 'ISC Board — Top 0.1%' },
+            { value: '9.49', unit: '/10', label: 'CGPA — Thapar Institute' },
+            { value: '96.5', unit: '%', label: 'ISC Board — Top 0.1%' },
             { value: '3+', unit: '', label: 'Production Projects' },
             { value: 'MERIT-I', unit: '', label: 'Scholarship Recipient' },
           ].map((stat) => (

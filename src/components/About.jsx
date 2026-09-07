@@ -37,16 +37,16 @@ export default function About() {
             </motion.div>
 
             <motion.p className="about-body" variants={fadeUp}>
-              I'm a <span className="about-highlight">Second-year Software Engineering student</span> at
-              Thapar Institute with a 9.67 CGPA — passionate about writing clean, scalable code and
+              I'm a <span className="about-highlight">Third-year Computer Engineering student</span> at
+              Thapar Institute with a 9.49 CGPA — passionate about writing clean, scalable code and
               shipping products that solve real problems.
             </motion.p>
 
             <motion.p className="about-body" variants={fadeUp}>
               My work spans the full stack: from crafting responsive React interfaces to designing
               secure Node.js APIs, integrating{' '}
-              <span className="about-highlight-teal">Redis caching</span>,{' '}
-              <span className="about-highlight-teal">Stripe payments</span>, and deploying to
+              <span className="about-highlight-teal">Stripe payments</span>,{' '}
+              <span className="about-highlight-teal">Clerk authentication</span>, and deploying to
               production via Vercel and MongoDB Atlas.
             </motion.p>
 

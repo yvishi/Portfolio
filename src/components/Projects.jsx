@@ -10,40 +10,20 @@ const FEATURED = {
   subtitle: 'Full-Stack MERN Application',
   desc: 'A production-grade hotel reservation system with transaction-safe booking logic, real-time availability management, JWT + Clerk authentication, Redis caching for performance, and Stripe payment processing. Deployed on Vercel with MongoDB Atlas.',
   highlights: [
-    'Transaction-safe concurrent booking with optimistic locking',
-    'Redis caching layer — 60% reduction in repeat query load',
+    'Date-interval overlap checks with MongoDB transaction locking to prevent double-bookings under concurrent requests',
     'Stripe checkout with webhook-based booking confirmation',
-    'Role-based access — guest, admin, and hotel manager views',
+    'Hotel-owner dashboard API aggregating booking counts and revenue per property',
+    'Cloudinary-backed image uploads for hotel/room listings via Multer',
   ],
-  tags: ['MongoDB', 'Express', 'React', 'Node.js', 'Redis', 'Stripe', 'Clerk Auth', 'Vercel'],
+  tags: ['MongoDB', 'Express', 'React', 'Node.js', 'Stripe', 'Clerk Auth', 'Cloudinary', 'Vercel'],
   github: 'https://github.com/yvishi/Hotel-Booking',
   live: 'https://quickstay-teal.vercel.app/',
 }
 
-// ── Tier 2: Mid-size feature card ────────────────────────
-const AIRX = {
-  num: '02',
-  title: 'AirX',
-  subtitle: 'Multi-Agent · Self-Improving Reinforcement Learning',
-  desc: 'A cooperative multi-agent RL environment for air traffic control — two agents (AMAN & DMAN) coordinate via a 3-round negotiation protocol under partial observability, trained with GRPO + Unsloth 4-bit QLoRA.',
-  stats: [
-    { label: 'Composite Score', from: '0.47', to: '0.71' },
-    { label: 'Conflict Rate', from: '18%', to: '4%' },
-    { label: 'Emergency On-Time', from: '61%', to: '94%' },
-  ],
-  bullets: [
-    'Built ADAPT — a meta-agent enabling zero-shot domain transfer (ATC → ICU scheduling) via structural signal remapping, no retraining',
-    'Deployed an OpenEnv-compliant FastAPI + Docker server on Hugging Face Spaces with multi-agent REST endpoints',
-  ],
-  tags: ['PyTorch', 'GRPO', 'QLoRA', 'FastAPI', 'Docker', 'Hugging Face'],
-  github: 'https://github.com/yvishi',
-  live: null,
-}
-
-// ── Tier 3: Small grid ───────────────────────────────────
+// ── Tier 2: Small grid ───────────────────────────────────
 const PROJECTS = [
   {
-    num: '03',
+    num: '02',
     title: 'RankX',
     subtitle: 'Multi-LLM Benchmarking System',
     desc: 'Runs Claude, GPT-4o, and Gemini simultaneously via asyncio.gather — returning latency, token counts, and cost per model. Blind quality scoring with zero server-side key storage.',
@@ -52,7 +32,7 @@ const PROJECTS = [
     live: null,
   },
   {
-    num: '04',
+    num: '03',
     title: 'SplitSmart',
     subtitle: 'Expense Splitter',
     desc: 'Group expense management app with contact management, group creation, intelligent split logic, and Firestore persistence for shared balances.',
@@ -123,56 +103,7 @@ export default function Projects() {
           </div>
         </motion.div>
 
-        {/* Tier 2 — AirX mid-size card */}
-        <motion.div
-          className="project-mid"
-          initial={{ opacity: 0, y: 36, filter: 'blur(4px)' }}
-          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="project-mid-header">
-            <div className="project-mid-left">
-              <div className="project-mid-num">{AIRX.num}</div>
-              <div>
-                <div className="project-mid-title">{AIRX.title}</div>
-                <div className="project-mid-subtitle">{AIRX.subtitle}</div>
-              </div>
-            </div>
-            <a href={AIRX.github} className="btn-project-outline" target="_blank" rel="noopener noreferrer">
-              <GithubIcon size={13} /> GitHub
-            </a>
-          </div>
-
-          <p className="project-desc" style={{ marginBottom: '20px' }}>{AIRX.desc}</p>
-
-          <div className="project-mid-stats">
-            {AIRX.stats.map((s) => (
-              <div className="project-stat" key={s.label}>
-                <div className="project-stat-label">{s.label}</div>
-                <div className="project-stat-values">
-                  <span className="project-stat-from">{s.from}</span>
-                  <span className="project-stat-arrow">→</span>
-                  <span className="project-stat-to">{s.to}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <ul className="project-mid-bullets">
-            {AIRX.bullets.map((b) => <li key={b}>{b}</li>)}
-          </ul>
-
-          <div className="project-mid-footer">
-            <div className="project-tags">
-              {AIRX.tags.map((t) => (
-                <span key={t} className="tag tag-teal">{t}</span>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Tier 3 — Small 2-col grid */}
+        {/* Tier 2 — Small 2-col grid */}
         <motion.div
           className="projects-grid projects-grid--two"
           initial="hidden"

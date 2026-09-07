@@ -44,7 +44,7 @@ export default function Education() {
             <div className="edu-school">Thapar Institute of Engineering &amp; Technology, Patiala</div>
 
             <div className="edu-score">
-              <span className="edu-score-value teal-score">9.67</span>
+              <span className="edu-score-value teal-score">9.49</span>
               <div>
                 <div className="edu-score-denom">/ 10 CGPA</div>
               </div>
@@ -83,7 +83,7 @@ export default function Education() {
             <div className="edu-school">St. Joseph's Academy, Dehradun</div>
 
             <div className="edu-score">
-              <span className="edu-score-value gold-score">97.5</span>
+              <span className="edu-score-value gold-score">96.5</span>
               <div>
                 <div className="edu-score-denom">% — ISC Board</div>
               </div>

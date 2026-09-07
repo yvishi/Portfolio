@@ -1,50 +1,37 @@
 import { motion } from 'framer-motion'
-import { Code2, Globe, Database, Wrench, Cloud, Brain, Server } from 'lucide-react'
+import { Code2, Globe, Database, Wrench, Cloud } from 'lucide-react'
 import './Skills.css'
 
 const SKILLS = [
   {
-    icon: Brain,
-    title: 'ML & Deep Learning',
-    sub: 'AI & RL systems',
-    tags: ['PyTorch', 'Keras', 'Reinforcement Learning', 'Multi-Agent Systems', 'GRPO', 'QLoRA', 'Hugging Face', 'Jupyter'],
-    featured: true,
-  },
-  {
     icon: Code2,
     title: 'Languages',
     sub: 'Core programming',
-    tags: ['C++', 'Python', 'JavaScript', 'Java', 'SQL', 'HTML5', 'CSS3'],
+    tags: ['C++', 'Python', 'C', 'Java', 'JavaScript', 'SQL'],
   },
   {
     icon: Globe,
-    title: 'Frontend',
-    sub: 'Web & Mobile UI',
-    tags: ['React.js', 'React Native', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Expo'],
-  },
-  {
-    icon: Server,
-    title: 'Backend',
-    sub: 'Server & APIs',
-    tags: ['Node.js', 'Express.js', 'FastAPI', 'REST APIs', 'JWT Auth', 'Docker'],
+    title: 'Web Technologies',
+    sub: 'Frontend & backend',
+    tags: ['React', 'Node.js', 'Express.js', 'REST APIs', 'HTML', 'CSS', 'Tailwind CSS'],
   },
   {
     icon: Database,
-    title: 'Databases',
-    sub: 'Data persistence',
-    tags: ['MongoDB', 'MySQL', 'Firebase', 'Firestore', 'Redis', 'PostgreSQL'],
-  },
-  {
-    icon: Wrench,
-    title: 'Tools & DevOps',
-    sub: 'Build & deploy',
-    tags: ['Git', 'GitHub', 'AWS', 'Vercel', 'Postman', 'Hugging Face', 'Linux'],
+    title: 'Databases & Cloud',
+    sub: 'Data & deployment',
+    tags: ['MySQL', 'MongoDB', 'Firebase', 'Vercel', 'AWS'],
   },
   {
     icon: Cloud,
-    title: 'Integrations',
-    sub: 'Third-party services',
-    tags: ['Stripe', 'Clerk', 'Claude API', 'OpenAI', 'Gemini', 'Cloudinary'],
+    title: 'Third-Party APIs',
+    sub: 'Integrations',
+    tags: ['Stripe', 'Clerk', 'Cloudinary'],
+  },
+  {
+    icon: Wrench,
+    title: 'Tools & Platforms',
+    sub: 'Build & workflow',
+    tags: ['Hugging Face', 'Jupyter', 'Git', 'GitHub', 'Postman'],
   },
 ]
 
