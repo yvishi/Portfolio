@@ -1,6 +1,6 @@
 /* Skills Section */
 .skills-section {
-  background: var(--off-white);
+  background: var(--panel);
 }
 
 .skills-grid {
@@ -11,15 +11,15 @@
 }
 
 .skill-group {
-  background: white;
-  border: 1px solid var(--border);
+  background: var(--panel-2);
+  border: 1px solid var(--rule);
   border-radius: var(--radius-md);
   padding: var(--space-6);
   transition: var(--transition);
 }
 .skill-group:hover {
-  box-shadow: var(--shadow);
-  border-color: rgba(14,165,160,0.2);
+  box-shadow: 0 2px 0 var(--wire);
+  border-color: var(--wire);
 }
 
 .skill-group-header {
@@ -28,25 +28,25 @@
   gap: var(--space-3);
   margin-bottom: var(--space-5);
   padding-bottom: var(--space-4);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--rule);
 }
 
 .skill-group-icon {
   width: 36px;
   height: 36px;
-  background: var(--off-white);
+  background: var(--panel);
   border-radius: var(--radius);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
-.skill-group-icon svg { color: var(--teal); }
+.skill-group-icon svg { color: var(--wire); }
 
 .skill-group-title {
   font-size: 13.5px;
   font-weight: 600;
-  color: var(--navy);
+  color: var(--ink);
   letter-spacing: 0.01em;
 }
 
@@ -54,7 +54,8 @@
   font-family: var(--font-mono);
   font-size: 9.5px;
   letter-spacing: 0.12em;
-  color: var(--teal);
+  text-transform: uppercase;
+  color: var(--wire);
   margin-top: 1px;
 }
 
@@ -64,30 +65,22 @@
   gap: var(--space-2);
 }
 
+/* Layout-only sizing on top of the shared .tag/.tag-teal styling (color/border/hover
+   come from the shared classes in index.css — do not duplicate them here). */
 .skill-tag {
-  font-family: var(--font-mono);
   font-size: 11px;
   padding: 5px 11px;
-  border-radius: var(--radius-sm);
-  background: var(--off-white);
-  color: var(--text);
-  border: 1px solid var(--border);
-  transition: var(--transition);
-}
-.skill-tag:hover {
-  background: var(--teal-lt);
-  color: var(--teal-dark);
-  border-color: rgba(14,165,160,0.2);
 }
 
 /* Featured ML category card */
 .skill-group--featured {
-  border-color: rgba(14,165,160,0.22);
-  background: linear-gradient(135deg, rgba(14,165,160,0.04) 0%, white 60%);
+  border-color: var(--signal);
 }
 .skill-group--featured .skill-group-icon {
-  background: rgba(14,165,160,0.1);
+  background: rgba(255,158,44,0.14);
 }
+.skill-group--featured .skill-group-icon svg { color: var(--signal); }
+.skill-group--featured .skill-group-sub { color: var(--signal-dim-text); }
 
 @media (max-width: 900px) {
   .skills-grid { grid-template-columns: repeat(2, 1fr); }

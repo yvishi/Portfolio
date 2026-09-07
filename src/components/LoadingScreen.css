@@ -1,7 +1,7 @@
 .loading-screen {
   position: fixed;
   inset: 0;
-  background: var(--navy);
+  background: var(--chassis);
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -19,7 +19,7 @@
 .loading-name {
   font-family: var(--font-display);
   font-size: clamp(28px, 6vw, 60px);
-  color: white;
+  color: var(--paper-on-dark);
   letter-spacing: -0.02em;
   display: flex;
   overflow: visible;
@@ -37,8 +37,8 @@
 .loading-bar {
   width: clamp(180px, 38vw, 340px);
   height: 1.5px;
-  background: var(--teal);
-  box-shadow: 0 0 10px rgba(14, 165, 160, 0.6);
+  background: var(--signal);
+  box-shadow: 0 0 10px rgba(255, 158, 44, 0.6);
   transform-origin: left center;
   border-radius: 1px;
 }
@@ -48,5 +48,12 @@
   font-size: 9.5px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(243, 239, 228, 0.5);
+}
+
+.loading-status {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--wire-text);
+  letter-spacing: 0.04em;
 }

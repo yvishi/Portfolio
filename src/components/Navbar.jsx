@@ -5,6 +5,10 @@ import logo from '../assets/initials-removebg-preview.png'
 
 const NAV_ITEMS = ['About', 'Education', 'Experience', 'Projects', 'Skills', 'Awards', 'Contact']
 
+function getScrollBehavior() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+}
+
 export default function Navbar({ activeSection }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -17,12 +21,12 @@ export default function Navbar({ activeSection }) {
 
   const scrollTo = (id) => {
     const el = document.getElementById(id.toLowerCase())
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (el) el.scrollIntoView({ behavior: getScrollBehavior(), block: 'start' })
     setMobileOpen(false)
   }
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0, behavior: getScrollBehavior() })
     setMobileOpen(false)
   }
 
@@ -51,7 +55,7 @@ export default function Navbar({ activeSection }) {
 
         <div className="nav-cta-wrap">
           <a
-            href="https://drive.google.com/file/d/1hjHBn8t0XFq1IhZ1_A2O_ndmsvKoUGzt/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1p6g0rp3Wt3adalRjOqv-t08XPEQPS1Bh/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
@@ -90,7 +94,7 @@ export default function Navbar({ activeSection }) {
               </button>
             ))}
             <a
-              href="https://drive.google.com/file/d/1hjHBn8t0XFq1IhZ1_A2O_ndmsvKoUGzt/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1p6g0rp3Wt3adalRjOqv-t08XPEQPS1Bh/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"

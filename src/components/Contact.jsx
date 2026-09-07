@@ -204,7 +204,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="form-submit"
+                className="btn btn-primary form-submit"
                 id="contact-submit"
                 disabled={loading || submitted}
               >
