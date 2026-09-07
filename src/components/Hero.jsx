@@ -113,7 +113,6 @@ export default function Hero() {
             { value: '9.49', unit: '/10', label: 'CGPA — Thapar Institute' },
             { value: '96.5', unit: '%', label: 'ISC Board — Top 0.1%' },
             { value: '3+', unit: '', label: 'Production Projects' },
-            { value: 'MERIT-I', unit: '', label: 'Scholarship Recipient' },
           ].map((stat) => (
             <div className="hero-stat" key={stat.label}>
               <div className="hero-stat-value">
