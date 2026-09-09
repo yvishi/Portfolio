@@ -55,7 +55,7 @@ export default function Navbar({ activeSection }) {
 
         <div className="nav-cta-wrap">
           <a
-            href="https://drive.google.com/file/d/1p6g0rp3Wt3adalRjOqv-t08XPEQPS1Bh/view?usp=sharing"
+            href="https://drive.google.com/file/d/1eXQ5VljJfhe3s5LLMw3d9fsp0Hkyz5IY/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
@@ -94,7 +94,7 @@ export default function Navbar({ activeSection }) {
               </button>
             ))}
             <a
-              href="https://drive.google.com/file/d/1p6g0rp3Wt3adalRjOqv-t08XPEQPS1Bh/view?usp=sharing"
+              href="https://drive.google.com/file/d/1eXQ5VljJfhe3s5LLMw3d9fsp0Hkyz5IY/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"
