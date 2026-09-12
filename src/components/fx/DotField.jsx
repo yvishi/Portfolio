@@ -11,7 +11,7 @@ export default function DotField({
   radius = 170,
   pull = 14,
   color = '143, 169, 255',
-  baseAlpha = 0.16,
+  baseAlpha = 0.22,
   maxAlpha = 0.95,
   className,
 }) {

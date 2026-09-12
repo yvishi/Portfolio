@@ -24,7 +24,7 @@
 .xp-item {
   position: relative;
   display: grid;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 200px 1fr;
   gap: 32px;
   padding-bottom: 64px;
 }

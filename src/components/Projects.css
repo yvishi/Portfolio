@@ -158,6 +158,26 @@
   color: var(--fg-3);
 }
 .proj-desc { color: var(--fg-2); font-size: 15px; }
+
+/* Compact metric shown in the body on narrow layouts (the media badge hides) */
+.proj-metric-inline {
+  display: none;
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.proj-metric-inline strong {
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 85, 'wght' 600, 'opsz' 96;
+  font-size: 22px;
+  letter-spacing: -0.03em;
+  color: var(--fg);
+  margin-right: 8px;
+  vertical-align: -2px;
+}
 .proj-highlights {
   list-style: none;
   display: flex;
@@ -199,4 +219,6 @@
   .proj-media { min-height: 260px; aspect-ratio: 16 / 9; }
   .proj-media-abstract span { font-size: 140px; }
   .proj-body { padding: 28px; }
+  .proj-metric { display: none; }
+  .proj-metric-inline { display: block; }
 }

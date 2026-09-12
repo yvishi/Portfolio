@@ -52,6 +52,11 @@ function StackCard({ project, index, total, stacked }) {
             <div>
               <h3 className="proj-title">{project.title}</h3>
               <p className="proj-subtitle">{project.subtitle}</p>
+              {project.metric && (
+                <p className="proj-metric-inline">
+                  <strong>{project.metric.value}</strong> {project.metric.label}
+                </p>
+              )}
             </div>
             <p className="proj-desc">{project.desc}</p>
             <ul className="proj-highlights">

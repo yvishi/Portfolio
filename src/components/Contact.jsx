@@ -89,7 +89,7 @@ export default function Contact() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <form className="contact-form" ref={formRef} onSubmit={onSubmit} noValidate={false}>
+          <form className="contact-form" ref={formRef} onSubmit={onSubmit}>
             <div className="field-row">
               <Field id="c-name" name="from_name" label="Name" type="text" required autoComplete="name" />
               <Field id="c-email" name="from_email" label="Email" type="email" required autoComplete="email" />
