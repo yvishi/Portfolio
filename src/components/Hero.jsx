@@ -1,147 +1,97 @@
 import { motion } from 'framer-motion'
-import { Mail } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, Mail } from 'lucide-react'
+import { PROFILE } from '../data/profile'
 import { GithubIcon, LinkedinIcon } from './BrandIcons'
+import { CountUp, DotField, Magnetic, ProximityText, RotatingText } from './fx'
+import { scrollBehavior } from '../hooks/useMedia'
 import './Hero.css'
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 32, filter: 'blur(4px)' },
-  visible: (delay = 0) => ({
-    opacity: 1, y: 0, filter: 'blur(0px)',
-    transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
-  }),
-}
-
-function getScrollBehavior() {
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
-}
+const EASE = [0.22, 1, 0.36, 1]
+const rise = (delay) => ({
+  initial: { opacity: 0, y: 22, filter: 'blur(6px)' },
+  animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
+  transition: { duration: 0.8, delay, ease: EASE },
+})
 
 export default function Hero() {
-  const scrollToProjects = () => {
-    document.getElementById('projects')?.scrollIntoView({ behavior: getScrollBehavior() })
-  }
-
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: getScrollBehavior() })
-  }
+  const goTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: scrollBehavior() })
 
   return (
-    <section id="hero" className="hero" aria-label="Hero section">
-      <div className="hero-bg" aria-hidden="true">
-        <div className="hero-gradient" />
-        <div className="hero-grid" />
-        <div className="hero-orb hero-orb-1" />
-        <div className="hero-orb hero-orb-2" />
+    <section id="hero" className="hero" aria-label="Introduction">
+      <div className="hero-field" aria-hidden="true">
+        <DotField gap={30} radius={190} pull={16} />
+        <div className="hero-vignette" />
+        <div className="hero-glow" />
       </div>
 
-      <div className="hero-content">
-        <motion.div
-          className="hero-tag"
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={0.1}
-        >
-          Computer Engineer &amp; Full-Stack Developer
-        </motion.div>
+      <div className="container hero-inner">
+        <motion.p className="eyebrow hero-eyebrow" {...rise(0.1)}>
+          {PROFILE.eyebrow}
+        </motion.p>
 
-        <motion.div
-          className="hero-telemetry"
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={0.02}
-        >
-          <span className="hero-telemetry-dot" aria-hidden="true" />
-          role: ai software engineer · focus: full-stack & ai-driven products · status: available
-        </motion.div>
-
-        <motion.h1
-          className="hero-name"
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={0.25}
-        >
-          Yash
-          <span className="name-accent">Vishnoi.</span>
+        <motion.h1 className="hero-name" {...rise(0.2)}>
+          <ProximityText as="span" text={PROFILE.first} className="hero-name-line" />
+          <ProximityText as="span" text={PROFILE.last} className="hero-name-line" />
         </motion.h1>
 
-        <motion.p
-          className="hero-title"
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={0.38}
-        >
-          MERN Stack · AI Applications · Secure Systems
-        </motion.p>
+        <div className="hero-below">
+          <div className="hero-copy">
+            <motion.p className="hero-role" {...rise(0.4)}>
+              Building <RotatingText words={PROFILE.rotating} className="hero-role-word" />
+            </motion.p>
+            <motion.p className="hero-tagline" {...rise(0.5)}>
+              {PROFILE.tagline}
+            </motion.p>
+            <motion.div className="hero-actions" {...rise(0.6)}>
+              <Magnetic>
+                <button className="btn btn-solid" onClick={() => goTo('projects')} data-cursor>
+                  View work <ArrowDown size={15} />
+                </button>
+              </Magnetic>
+              <Magnetic>
+                <button className="btn btn-ghost" onClick={() => goTo('contact')} data-cursor>
+                  Get in touch
+                </button>
+              </Magnetic>
+            </motion.div>
+          </div>
 
-        <motion.p
-          className="hero-tagline"
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={0.5}
-        >
-          Third-year Computer Engineering student at Thapar Institute of Engineering &amp; Technology
-          with a 9.49 CGPA — building production-grade applications that people actually use.
-        </motion.p>
-
-        <motion.div
-          className="hero-actions"
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={0.62}
-        >
-          <button className="btn btn-primary" onClick={scrollToProjects} id="hero-view-projects">
-            View Projects →
-          </button>
-          <button className="btn btn-ghost-white" onClick={scrollToContact} id="hero-contact">
-            Get In Touch
-          </button>
-        </motion.div>
-
-        <motion.div
-          className="hero-stats"
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={0.75}
-        >
-          {[
-            { value: '9.49', unit: '/10', label: 'CGPA — Thapar Institute' },
-            { value: '96.5', unit: '%', label: 'ISC Board — Top 0.1%' },
-            { value: '3+', unit: '', label: 'Production Projects' },
-          ].map((stat) => (
-            <div className="hero-stat" key={stat.label}>
-              <div className="hero-stat-value">
-                {stat.value}<em>{stat.unit}</em>
-              </div>
-              <div className="hero-stat-label">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
+          <motion.ul className="hero-stats" {...rise(0.7)} aria-label="Highlights">
+            {PROFILE.stats.map((s, i) => (
+              <li className="hero-stat" key={s.label}>
+                <span className="hero-stat-value">
+                  <CountUp value={s.value} decimals={s.decimals} suffix={s.suffix} delay={0.8 + i * 0.1} />
+                </span>
+                <span className="hero-stat-label">{s.label}</span>
+              </li>
+            ))}
+          </motion.ul>
+        </div>
       </div>
 
-      {/* Social Links */}
-      <div className="hero-socials" aria-label="Social links">
-        <a href="https://github.com/yvishi" target="_blank" rel="noopener noreferrer" className="social-btn" aria-label="GitHub">
-          <GithubIcon size={16} />
-        </a>
-        <a href="https://www.linkedin.com/in/yash-vishnoi-8656a7312/" target="_blank" rel="noopener noreferrer" className="social-btn" aria-label="LinkedIn">
-          <LinkedinIcon size={16} />
-        </a>
-        <a href="mailto:y.v.s.vishnoi@gmail.com" className="social-btn" aria-label="Email">
-          <Mail size={16} />
-        </a>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="hero-scroll" aria-hidden="true">
-        <div className="hero-scroll-line" />
-        <span>scroll</span>
-      </div>
+      <motion.div className="hero-foot container" {...rise(0.9)}>
+        <div className="hero-scroll" aria-hidden="true">
+          <span className="hero-scroll-line" />
+          <span>Scroll</span>
+        </div>
+        <ul className="hero-socials" aria-label="Profiles">
+          <li>
+            <a href={PROFILE.github} target="_blank" rel="noopener noreferrer" className="hero-social" aria-label="GitHub">
+              <GithubIcon size={15} /> <span>GitHub</span> <ArrowUpRight size={12} />
+            </a>
+          </li>
+          <li>
+            <a href={PROFILE.linkedin} target="_blank" rel="noopener noreferrer" className="hero-social" aria-label="LinkedIn">
+              <LinkedinIcon size={15} /> <span>LinkedIn</span> <ArrowUpRight size={12} />
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${PROFILE.email}`} className="hero-social" aria-label="Email">
+              <Mail size={15} /> <span>Email</span> <ArrowUpRight size={12} />
+            </a>
+          </li>
+        </ul>
+      </motion.div>
     </section>
   )
 }

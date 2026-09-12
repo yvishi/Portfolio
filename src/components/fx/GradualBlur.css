@@ -1,0 +1,19 @@
+.gblur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  pointer-events: none;
+  transition: transform 0.5s var(--ease-out), opacity 0.5s var(--ease-out);
+}
+/* Hides in lockstep with the nav — it exists to soften content sliding
+   under the nav, so it has no reason to stay once the nav is gone. */
+.gblur--hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+.gblur-layer {
+  position: absolute;
+  inset: 0;
+}

@@ -1,0 +1,60 @@
+.spot {
+  --mx: -400px;
+  --my: -400px;
+  --spot-size: 420px;
+  position: relative;
+  isolation: isolate;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: border-color var(--t-med), background var(--t-med);
+}
+
+/* surface glow */
+.spot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    var(--spot-size) circle at var(--mx) var(--my),
+    rgba(var(--glow-rgb), 0.12),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out);
+  pointer-events: none;
+}
+
+/* border light: a 1px ring masked so only the border shows */
+.spot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    calc(var(--spot-size) * 0.7) circle at var(--mx) var(--my),
+    rgba(var(--glow-rgb), 0.7),
+    transparent 60%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out);
+  pointer-events: none;
+}
+
+.spot:hover::before,
+.spot:hover::after,
+.spot:focus-within::before,
+.spot:focus-within::after { opacity: 1; }
+
+.spot:hover { border-color: var(--line-2); }
+
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .spot::before, .spot::after { display: none; }
+}
