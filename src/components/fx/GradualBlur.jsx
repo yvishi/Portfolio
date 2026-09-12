@@ -5,7 +5,7 @@ import './GradualBlur.css'
  * as it slides under the nav. Five stacked backdrop-filter layers with
  * increasing blur and offset gradient masks.
  */
-export default function GradualBlur({ height = 64, layers = 5, strength = 10 }) {
+export default function GradualBlur({ height = 64, layers = 5, strength = 10, hidden = false }) {
   const items = Array.from({ length: layers }, (_, i) => {
     const p = (i + 1) / layers
     const blur = (strength * p).toFixed(1)
@@ -24,7 +24,7 @@ export default function GradualBlur({ height = 64, layers = 5, strength = 10 }) 
   })
 
   return (
-    <div className="gblur" style={{ height }} aria-hidden="true">
+    <div className={`gblur${hidden ? ' gblur--hidden' : ''}`} style={{ height }} aria-hidden="true">
       {items}
     </div>
   )

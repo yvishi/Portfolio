@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
 import { AWARDS } from '../data/awards'
 import { Reveal, fadeUp, staggerParent } from './fx'
 import './Awards.css'
@@ -30,7 +29,6 @@ export default function Awards() {
                 <p className="award-desc">{a.desc}</p>
               </div>
               <span className="award-kind">{a.kind}</span>
-              <ArrowUpRight className="award-arrow" size={18} aria-hidden="true" />
             </motion.li>
           ))}
         </motion.ol>

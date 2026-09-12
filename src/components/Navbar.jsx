@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import { PROFILE } from '../data/profile'
 import { scrollBehavior } from '../hooks/useMedia'
+import { GradualBlur } from './fx'
 import './Navbar.css'
 
 const NAV_ITEMS = ['About', 'Education', 'Experience', 'Projects', 'Skills', 'Awards', 'Contact']
@@ -57,6 +58,8 @@ export default function Navbar({ activeSection }) {
 
   return (
     <>
+      <GradualBlur height={72} strength={12} hidden={hidden} />
+
       <header className={`nav${hidden ? ' nav--hidden' : ''}${scrolled ? ' nav--scrolled' : ''}`}>
         <div className="nav-inner">
           <button className="nav-mark" onClick={top} aria-label="Back to top">

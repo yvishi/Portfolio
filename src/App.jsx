@@ -14,7 +14,7 @@ import Awards from './components/Awards'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import LoadingScreen from './components/LoadingScreen'
-import { Cursor, GradualBlur, Grain } from './components/fx'
+import { Cursor, Grain } from './components/fx'
 import { useReducedMotion } from './hooks/useMedia'
 
 const SECTIONS = ['hero', 'about', 'education', 'experience', 'projects', 'skills', 'awards', 'contact']
@@ -90,7 +90,6 @@ export default function App() {
 
         <Grain />
         <Cursor />
-        <GradualBlur height={72} strength={12} />
 
         <Navbar activeSection={activeSection} />
         <main>
