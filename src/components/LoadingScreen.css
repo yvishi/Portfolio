@@ -1,59 +1,73 @@
-.loading-screen {
+.loader {
   position: fixed;
   inset: 0;
-  background: var(--chassis);
   z-index: 9999;
+  background: var(--bg);
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  padding: 0 var(--gutter);
+  will-change: clip-path;
+}
+
+.loader-name {
+  display: flex;
+  flex-direction: column;
+  max-width: var(--container);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.loader-line {
+  display: block;
+  overflow: hidden;
+  line-height: 0.9;
+}
+
+.loader-line-inner {
+  display: block;
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 85, 'wght' 400, 'opsz' 96;
+  font-size: clamp(56px, 12vw, 160px);
+  letter-spacing: -0.03em;
+  color: var(--fg);
   will-change: transform;
 }
 
-.loading-inner {
-  display: flex;
-  flex-direction: column;
+.loader-foot {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 36px;
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: var(--space-5);
+  gap: 24px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--fg-3);
 }
 
-.loading-name {
-  font-family: var(--font-display);
-  font-size: clamp(28px, 6vw, 60px);
-  color: var(--paper-on-dark);
-  letter-spacing: -0.02em;
-  display: flex;
-  overflow: visible;
+.loader-count {
+  font-variant-numeric: tabular-nums;
+  color: var(--fg);
 }
 
-.loading-char {
-  display: inline-block;
+.loader-bar {
+  display: block;
+  height: 1px;
+  background: var(--line);
+  overflow: hidden;
 }
-
-.loading-space {
-  display: inline-block;
-  width: 0.32em;
-}
-
-.loading-bar {
-  width: clamp(180px, 38vw, 340px);
-  height: 1.5px;
-  background: var(--signal);
-  box-shadow: 0 0 10px rgba(255, 158, 44, 0.6);
+.loader-bar-fill {
+  display: block;
+  height: 100%;
+  background: var(--glow);
   transform-origin: left center;
-  border-radius: 1px;
+  box-shadow: 0 0 12px rgba(var(--glow-rgb), 0.6);
 }
 
-.loading-label {
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: rgba(243, 239, 228, 0.5);
-}
-
-.loading-status {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--wire-text);
-  letter-spacing: 0.04em;
-}
+.loader-note { text-transform: uppercase; }

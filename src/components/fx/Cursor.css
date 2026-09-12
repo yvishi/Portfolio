@@ -1,0 +1,45 @@
+html.has-cursor, html.has-cursor * { cursor: none !important; }
+
+.cursor {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.cursor.is-visible { opacity: 1; }
+
+.cursor-dot,
+.cursor-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  translate: -50% -50%;
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--fg);
+  mix-blend-mode: difference;
+  transition: transform 0.2s var(--ease-out), opacity 0.2s;
+}
+
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  mix-blend-mode: difference;
+  transition: width 0.35s var(--ease-out), height 0.35s var(--ease-out), border-color 0.3s, background 0.3s;
+}
+
+.cursor.is-hover .cursor-ring {
+  width: 56px;
+  height: 56px;
+  border-color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.08);
+}
+.cursor.is-hover .cursor-dot { transform: scale(0.5); }
+.cursor.is-down .cursor-ring { width: 26px; height: 26px; }

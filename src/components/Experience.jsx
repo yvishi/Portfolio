@@ -1,106 +1,56 @@
-import { motion } from 'framer-motion'
-import { Briefcase } from 'lucide-react'
+import { useRef } from 'react'
+import { motion, useScroll, useSpring } from 'framer-motion'
+import { EXPERIENCE } from '../data/experience'
+import { Reveal } from './fx'
+import { useReducedMotion } from '../hooks/useMedia'
 import './Experience.css'
 
-const EXP_DATA = [
-  {
-    role: 'AI Software Engineer Intern',
-    company: 'Dakhila AI',
-    duration: 'May 2026 — Present',
-    location: 'Remote',
-    type: 'Internship',
-    desc: 'Designing and developing end-to-end product features across frontend, backend, and AI-driven workflows in a fast-paced startup environment.',
-    bullets: [
-      'Built the Document Hub, giving users a centralized interface to manage and access uploaded documents efficiently',
-      "Designed the company's upcoming landing page from scratch — collaborating on UX, visual design, and frontend implementation",
-      'Maintaining the production platform by resolving bugs, delivering feature improvements, and contributing to product workflow and architecture discussions with the engineering team',
-    ],
-    tags: ['React', 'Node.js', 'AI Workflows', 'Full-Stack', 'Product Design'],
-    accent: true,
-  },
-  {
-    role: 'Software Development Intern',
-    company: 'Raise Digital',
-    duration: 'March 2025 — April 2025',
-    location: 'Remote',
-    type: 'Internship',
-    desc: 'Built internal tools and customer-facing web applications for a digital agency using Laravel and the MERN stack in a production environment.',
-    bullets: [
-      'Developed an end-to-end Room Booking Platform with secure user authentication and role-based access using Laravel, backed by a MySQL database managing rooms, users, and reservation records',
-      'Built a Task Management System with task creation, deletion, deadlines, and search functionality — REST APIs tested via Postman, email notifications via Mailtrap, Bootstrap-based frontend',
-      'Integrated RESTful APIs and optimized database queries, reducing response times by ~40%',
-    ],
-    tags: ['Laravel', 'MySQL', 'REST APIs', 'Bootstrap', 'Postman', 'Mailtrap'],
-    accent: false,
-  },
-]
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 28, filter: 'blur(3px)' },
-  visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
-}
-
 export default function Experience() {
+  const listRef = useRef(null)
+  const reduced = useReducedMotion()
+  const { scrollYProgress } = useScroll({ target: listRef, offset: ['start 0.7', 'end 0.6'] })
+  const fill = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.4 })
+
   return (
-    <section id="experience" className="experience-section section-padding">
-      <div className="container">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={fadeUp}
-        >
-          <span className="section-label">04 · Experience</span>
-          <h2 className="section-title">Professional Work</h2>
-          <p className="section-desc">
-            Building real-world products across AI platforms and full-stack web development.
-          </p>
-        </motion.div>
+    <section id="experience" className="section experience">
+      <div className="container section-split">
+        <Reveal className="section-head">
+          <span className="eyebrow">Experience</span>
+          <h2 className="section-title">Shipping in production.</h2>
+          <p className="section-desc">Real products, real users — across AI platforms and full-stack web.</p>
+        </Reveal>
 
-        <div className="exp-timeline">
-          {EXP_DATA.map((exp, i) => (
-            <motion.div
-              className={`exp-item${exp.accent ? ' exp-item--accent' : ''}`}
-              key={exp.company}
-              initial={{ opacity: 0, x: -24, filter: 'blur(3px)' }}
-              whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className="exp-dot-col">
-                <div className={`exp-dot${exp.accent ? ' exp-dot--accent' : ''}`}>
-                  <Briefcase size={18} />
-                </div>
+        <ol className="xp-list" ref={listRef}>
+          <span className="xp-track" aria-hidden="true">
+            <motion.span className="xp-track-fill" style={{ scaleY: reduced ? 1 : fill }} />
+          </span>
+
+          {EXPERIENCE.map((xp, i) => (
+            <Reveal as="li" key={xp.company} className={`xp-item${xp.current ? ' is-current' : ''}`} delay={i * 0.06}>
+              <span className="xp-node" aria-hidden="true">
+                {xp.current && <span className="live-dot" />}
+              </span>
+
+              <div className="xp-meta">
+                <span className="xp-duration">{xp.duration}</span>
+                <span className="xp-sub">{xp.location} · {xp.type}</span>
+                {xp.current && <span className="xp-current">Current</span>}
               </div>
 
-              <div className="exp-card">
-                <div className="exp-header">
-                  <div>
-                    <div className="exp-role">{exp.role}</div>
-                    <div className="exp-company">{exp.company}</div>
-                  </div>
-                  <div className="exp-meta">
-                    <span className="exp-duration">{exp.duration}</span>
-                    <span className="exp-location">{exp.location}</span>
-                    <span className={`exp-type-badge${exp.accent ? ' exp-type-badge--active' : ''}`}>{exp.type}</span>
-                  </div>
-                </div>
-
-                <p className="exp-desc">{exp.desc}</p>
-
-                <ul className="exp-bullets">
-                  {exp.bullets.map((b) => <li key={b}>{b}</li>)}
+              <div className="xp-body">
+                <h3 className="xp-role">{xp.role}</h3>
+                <p className="xp-company">{xp.company}</p>
+                <p className="xp-desc">{xp.desc}</p>
+                <ul className="xp-bullets">
+                  {xp.bullets.map((b) => <li key={b}>{b}</li>)}
                 </ul>
-
-                <div className="exp-tags">
-                  {exp.tags.map((t) => (
-                    <span key={t} className="tag tag-teal">{t}</span>
-                  ))}
-                </div>
+                <ul className="xp-tags">
+                  {xp.tags.map((t) => <li key={t} className="chip">{t}</li>)}
+                </ul>
               </div>
-            </motion.div>
+            </Reveal>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   )

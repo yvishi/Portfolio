@@ -1,90 +1,56 @@
-/* Skills Section */
-.skills-section {
-  background: var(--panel);
-}
+.skills-head { margin-bottom: 56px; }
 
-.skills-grid {
+.bento {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--space-4);
-  margin-top: var(--space-10);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 16px;
 }
 
-.skill-group {
-  background: var(--panel-2);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
-  transition: var(--transition);
-}
-.skill-group:hover {
-  box-shadow: 0 2px 0 var(--wire);
-  border-color: var(--wire);
-}
+.bento-slot { min-width: 0; }
 
-.skill-group-header {
+.bento-cell {
   display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  margin-bottom: var(--space-5);
-  padding-bottom: var(--space-4);
-  border-bottom: 1px solid var(--rule);
+  flex-direction: column;
+  gap: 24px;
+  padding: 28px;
+  height: 100%;
 }
 
-.skill-group-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--panel);
-  border-radius: var(--radius);
+/* When the pointer is anywhere over the grid, every cell shows its light */
+.bento:hover .spot::before,
+.bento:hover .spot::after { opacity: 1; }
+
+.bento-cell-head {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  flex-direction: column;
+  gap: 4px;
 }
-.skill-group-icon svg { color: var(--wire); }
-
-.skill-group-title {
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: 0.01em;
+.bento-title {
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 95, 'wght' 500, 'opsz' 40;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: var(--fg);
 }
-
-.skill-group-sub {
+.bento-sub {
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--wire);
-  margin-top: 1px;
+  color: var(--fg-3);
 }
-
-.skill-tags {
+.bento-tags {
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
+  gap: 8px;
+  margin-top: auto;
 }
-
-/* Layout-only sizing on top of the shared .tag/.tag-teal styling (color/border/hover
-   come from the shared classes in index.css — do not duplicate them here). */
-.skill-tag {
-  font-size: 11px;
-  padding: 5px 11px;
-}
-
-/* Featured ML category card */
-.skill-group--featured {
-  border-color: var(--signal);
-}
-.skill-group--featured .skill-group-icon {
-  background: rgba(255,158,44,0.14);
-}
-.skill-group--featured .skill-group-icon svg { color: var(--signal); }
-.skill-group--featured .skill-group-sub { color: var(--signal-dim-text); }
 
 @media (max-width: 900px) {
-  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .bento-slot { grid-column: span 6 !important; }
 }
-@media (max-width: 580px) {
-  .skills-grid { grid-template-columns: 1fr; }
+@media (max-width: 560px) {
+  .bento-slot { grid-column: span 12 !important; }
+  .bento-cell { padding: 24px; }
 }

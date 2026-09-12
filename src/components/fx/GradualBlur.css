@@ -1,0 +1,12 @@
+.gblur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  pointer-events: none;
+}
+.gblur-layer {
+  position: absolute;
+  inset: 0;
+}

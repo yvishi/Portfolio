@@ -1,0 +1,70 @@
+import sihbuddyShot from '../assets/projects/sihbuddy-landing.jpg'
+import hotelBookingShot from '../assets/projects/hotelbooking-landing.jpg'
+
+export const PROJECTS = [
+  {
+    id: 'sihbuddy',
+    title: 'SIH Buddy',
+    subtitle: 'Problem statement discovery platform',
+    desc: 'A full-stack platform analyzing 226 Smart India Hackathon 2026 problem statements — letting teams search, rank, compare, and shortlist problems, with a Python forecasting pipeline that estimates competition from historical SIH outcomes.',
+    highlights: [
+      'REST APIs for authentication, cross-device shortlist sync, and tokenized sharing on Firebase, Firestore, and Redis',
+      'Python forecasting pipeline estimating problem-statement competition from historical SIH outcomes',
+      'Analytics, SEO, and usage-based onboarding built to support platform growth',
+    ],
+    metric: { value: '20k+', label: 'users · 90k+ views' },
+    tags: ['React', 'Firebase', 'Firestore', 'Redis', 'Python', 'SEO'],
+    github: null,
+    live: 'https://www.sihbuddy.in/',
+    shot: sihbuddyShot,
+    tone: 'blue',
+  },
+  {
+    id: 'hotel',
+    title: 'Hotel Booking Platform',
+    subtitle: 'Full-stack MERN application',
+    desc: 'A production-grade hotel reservation system with transaction-safe booking logic, real-time availability management, JWT + Clerk authentication, Redis caching, and Stripe payment processing. Deployed on Vercel with MongoDB Atlas.',
+    highlights: [
+      'Transaction-safe booking flow with real-time room availability',
+      'Stripe payments, Clerk auth, Redis caching in production',
+    ],
+    metric: null,
+    tags: ['MongoDB', 'Express', 'React', 'Node.js', 'Stripe', 'Clerk Auth'],
+    github: 'https://github.com/yvishi/Hotel-Booking',
+    live: 'https://quickstay-teal.vercel.app/',
+    shot: hotelBookingShot,
+    tone: 'warm',
+  },
+  {
+    id: 'rankx',
+    title: 'RankX',
+    subtitle: 'Multi-LLM benchmarking system',
+    desc: 'Runs Claude, GPT-4o, and Gemini simultaneously via asyncio.gather — returning latency, token counts, and cost per model. Blind quality scoring with zero server-side key storage.',
+    highlights: [
+      'Concurrent model calls with per-model latency, tokens, and cost',
+      'Blind quality scoring; keys never touch the server',
+    ],
+    metric: null,
+    tags: ['Claude API', 'GPT-4o', 'Gemini', 'FastAPI'],
+    github: 'https://github.com/yvishi',
+    live: null,
+    shot: null,
+    tone: 'mono',
+  },
+  {
+    id: 'splitsmart',
+    title: 'SplitSmart',
+    subtitle: 'Expense splitter',
+    desc: 'Group expense management app with contact management, group creation, intelligent split logic, and Firestore persistence for shared balances.',
+    highlights: [
+      'Groups, contacts, and intelligent split logic',
+      'Firestore persistence for shared balances across devices',
+    ],
+    metric: null,
+    tags: ['React Native', 'Firestore', 'Expo'],
+    github: 'https://github.com/yvishi/SplitSmart',
+    live: null,
+    shot: null,
+    tone: 'green',
+  },
+]
